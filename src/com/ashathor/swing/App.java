@@ -23,7 +23,7 @@ public class App {
 			e.printStackTrace();
 		}
 		EventQueue.invokeLater(() -> {
-			var frame = new SimpleFrame();
+			var frame = new StatsFrame();
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setVisible(true);
 
@@ -31,36 +31,29 @@ public class App {
 	}
 }
 
-class SimpleFrame extends JFrame {
-	private static final int DEFAULT_WIDTH = 700;
+class StatsFrame extends JFrame {
+	private static final int DEFAULT_WIDTH = 200;
 	private static final int DEFAULT_HEIGHT = 700;
 	private static final String DEFAULT_TITLE = "Lil Calc";
 
 	JLabel text = new JLabel();
 	boolean msgSwitch = false;
 
-	public SimpleFrame() {
-		GridLayout gLayout = new GridLayout(2, 0);
-		text.setText("Old msg");
-		this.setLayout(gLayout);
-		add(text);
-		Button testB = new Button();
-		testB.addActionListener(e -> ButtonPressed());
-		add(testB);
-		add(new StatHolder(15));
+	public StatsFrame() {
+		GridLayout gridLayout = new GridLayout(6,1);
+		this.setLayout(gridLayout);
+		add(new StatHolder("Strength", 10));
+		add(new StatHolder("Dexterity", 10));
+		add(new StatHolder("Constitution", 10));
+		add(new StatHolder("Intelligence", 10));
+		add(new StatHolder("Wisdom", 10));
+		add(new StatHolder("Charisma", 10));
+		/*
+		 * add(new StatHolder(10)); add(new StatHolder(12)); add(new StatHolder(13));
+		 * add(new StatHolder(13)); add(new StatHolder(13));
+		 */
 		pack();
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		setTitle(DEFAULT_TITLE);
-	}
-
-	public void ButtonPressed() {
-		System.out.println("This is a message");
-		if (msgSwitch) {
-			text.setText("Hello this is great");
-			msgSwitch = false;
-		} else {
-			text.setText("this is a different bit of text");
-			msgSwitch = true;
-		}
 	}
 }
