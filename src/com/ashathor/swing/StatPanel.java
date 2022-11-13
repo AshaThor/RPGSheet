@@ -15,12 +15,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-public class StatHolder extends JPanel {
-	/**Statistic block for a RPG Game 
-	 * 
+public class StatPanel extends JPanel {
+	/**Statistic block for a RPG Game
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = Logger.getLogger(StatHolder.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(StatPanel.class.getName());
 
 	JLabel statLabel = new JLabel();
 	JLabel modifierLabel = new JLabel();
@@ -31,7 +30,7 @@ public class StatHolder extends JPanel {
 	 * @param statName - Name and title of the statistic
 	 * @param initStat - Initial Statistic
 	 * */
-	public StatHolder(String statName, int initStat) {
+	public StatPanel(String statName, int initStat) {
 
 		//Setting up the Title for the statistic
 		Border blackline = BorderFactory.createLineBorder(Color.black);

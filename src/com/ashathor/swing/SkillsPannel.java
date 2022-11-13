@@ -19,7 +19,6 @@ public class SkillsPannel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-
 	final static int GRID_COLS = 1;
 
 	public SkillsPannel() {
@@ -29,12 +28,11 @@ public class SkillsPannel extends JPanel {
 		title.setTitlePosition(TitledBorder.BELOW_BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
-		GridLayout gridLayout = new GridLayout(StatNames.numOfStats, GRID_COLS);
+		GridLayout gridLayout = new GridLayout(SkillNames.numOfSkills, GRID_COLS);
 		this.setLayout(gridLayout);
-		// To-Do reactor to use a list of statistics
-		// and also character statistics
+		// To-Do reactor to use character statistics
 		ProficientStatFactory proficientStatFactory = new ProficientStatFactory();
-		for(String skill : StatNames.Stats()) {
+		for(String skill : SkillNames.skillNames()) {
 			this.add(proficientStatFactory.create(skill, 11, "Dex"));
 		}
 	}
