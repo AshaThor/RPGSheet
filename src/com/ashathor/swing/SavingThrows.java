@@ -30,12 +30,13 @@ public class SavingThrows extends JPanel {
 		this.setLayout(gridLayout);
 		// To-Do reactor to use a list of statistics
 		// and also character statistics
-		this.add(new ProficientStatFactory("Strength", 12));
-		this.add(new ProficientStatFactory("Dexterity", 12));
-		this.add(new ProficientStatFactory("Constitution", 12));
-		this.add(new ProficientStatFactory("Inteligence", 12));
-		this.add(new ProficientStatFactory("Wisdom", 12));
-		this.add(new ProficientStatFactory("Charisma", 12));
+		ProficientStatFactory proficientStatFactory = new ProficientStatFactory();
+		this.add(proficientStatFactory.create("Strength", 12));
+		this.add(proficientStatFactory.create("Dexterity", 12));
+		this.add(proficientStatFactory.create("Constitution", 12));
+		this.add(proficientStatFactory.create("Inteligence", 12));
+		this.add(proficientStatFactory.create("Wisdom", 12));
+		this.add(proficientStatFactory.create("Charisma", 12));
 	}
 
 	

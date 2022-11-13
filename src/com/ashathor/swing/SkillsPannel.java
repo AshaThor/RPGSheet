@@ -14,22 +14,28 @@ import javax.swing.border.TitledBorder;
 
 public class SkillsPannel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+
+	final static int GRID_COLS = 1;
+
 	public SkillsPannel() {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
-		title = BorderFactory.createTitledBorder(blackline, "Saving Throws");
+		title = BorderFactory.createTitledBorder(blackline, "Skills");
 		title.setTitlePosition(TitledBorder.BELOW_BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
-		GridLayout gridLayout = new GridLayout(6, 1);
+		GridLayout gridLayout = new GridLayout(StatNames.numOfStats, GRID_COLS);
 		this.setLayout(gridLayout);
 		// To-Do reactor to use a list of statistics
 		// and also character statistics
-		this.add(new ProficientStatFactory("Strength", 12));
-		this.add(new ProficientStatFactory("Dexterity", 12));
-		this.add(new ProficientStatFactory("Constitution", 12));
-		this.add(new ProficientStatFactory("Inteligence", 12));
-		this.add(new ProficientStatFactory("Wisdom", 12));
-		this.add(new ProficientStatFactory("Charisma", 12));
+		ProficientStatFactory proficientStatFactory = new ProficientStatFactory();
+		for(String skill : StatNames.Stats()) {
+			this.add(proficientStatFactory.create(skill, 11, "Dex"));
+		}
 	}
 }

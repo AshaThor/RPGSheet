@@ -54,7 +54,7 @@ public class StatHolder extends JPanel {
 
 		
 		// Setting to a readable font and size
-		Font fontStyle = new Font("Arial", Font.BOLD, 15);
+		Font fontStyle = new Font("Arial", Font.BOLD, 10);
 
 		this.setLayout(new GridBagLayout());
 		

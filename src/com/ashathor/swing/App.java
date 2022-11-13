@@ -17,10 +17,10 @@ public class App {
 	 */
 	public static void main(String[] args) {
 
-		final int DEFAULT_WIDTH = 200;
-		final int DEFAULT_HEIGHT = 700;
-		final String DEFAULT_TITLE = "Lil Calc";
-		
+		final int DEFAULT_WIDTH = 1900;
+		final int DEFAULT_HEIGHT = 1000;
+		final String DEFAULT_TITLE = "RPG Sheet";
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
@@ -29,10 +29,20 @@ public class App {
 		}
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new JFrame();
-			GridLayout gridLayout = new GridLayout(1,2);
-			frame.setLayout(gridLayout);
-			frame.add(new StatsPanel());
-			frame.add(new SavingThrows());
+			
+			GridBagLayout gridBagLayout = new GridBagLayout();
+			
+			frame.setLayout(gridBagLayout);
+			frame.add(new ApplicationMenuBar(), new GridBagConstraints(0, 0, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			frame.add(new TitleBar(), new GridBagConstraints(0, 1, 3, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			frame.add(new StatsPanel(), new GridBagConstraints(0, 2, 1, 2, 1.0, 1.0, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			frame.add(new SavingThrows(), new GridBagConstraints(1, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+			frame.add(new SkillsPannel(), new GridBagConstraints(1, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 			frame.pack();
 			frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 			frame.setTitle(DEFAULT_TITLE);

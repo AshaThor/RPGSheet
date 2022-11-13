@@ -1,5 +1,7 @@
 package com.ashathor.swing;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
@@ -7,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class ProficientStatFactory extends JPanel{
+public class ProficientStatFactory{
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -17,9 +19,11 @@ public class ProficientStatFactory extends JPanel{
 	 * @param String name - name of statistic
 	 * @param int    statistic - Number of given statistic
 	 * @return 
+	 * @return 
+	 * @return 
 	 * @return JPanel
 	 */
-	public JPanel ProficientStatFactory(String name, int stat) {
+	JPanel create(String name, int stat) {
 		JPanel panel = new JPanel();
 		JRadioButton radioButton = new JRadioButton();
 		JLabel numberlabel = new JLabel(String.valueOf(stat));
@@ -34,13 +38,14 @@ public class ProficientStatFactory extends JPanel{
 		return panel;
 	}
 	
-	public JPanel ProficientStatFactory(String name, int stat, String skill) {
-		JPanel panel = ProficientStatFactory(name, stat);
-		JLabel skillLabel = new JLabel();
-		panel.add(skillLabel, new GridBagConstraints(0, 2, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
+	JPanel create(String name, int stat, String skill) {
+		JPanel panel = create(name, stat);
+		JLabel skillLabel = new JLabel(skill);
+		skillLabel.setFont(new Font("Arial", Font.PLAIN, 10));
+		skillLabel.setForeground(Color.GRAY);
+		panel.add(skillLabel, new GridBagConstraints(0, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 		return panel;
-		
 	}
 
 }
