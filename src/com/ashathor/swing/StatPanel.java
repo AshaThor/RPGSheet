@@ -2,6 +2,7 @@ package com.ashathor.swing;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -11,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
@@ -21,7 +23,7 @@ public class StatPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(StatPanel.class.getName());
 
-	JLabel statLabel = new JLabel();
+	JTextField statLabel = new JTextField();
 	JLabel modifierLabel = new JLabel();
 	int stat;
 	int modifier;

@@ -12,18 +12,18 @@ import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-public class SavingThrows extends JPanel {
+public class SavingThrowsPannel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Saving throws creates a JPanel that contains more panels of each statistic
 	 */
-	public SavingThrows() {
+	public SavingThrowsPannel() {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline, "Saving Throws");
-		title.setTitlePosition(TitledBorder.BELOW_BOTTOM);
+		title.setTitlePosition(TitledBorder.BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
 		GridLayout gridLayout = new GridLayout(6, 1);

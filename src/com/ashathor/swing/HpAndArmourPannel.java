@@ -9,6 +9,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
@@ -17,10 +18,10 @@ public class HpAndArmourPannel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JLabel armourClass = new JLabel("1");
-	JLabel inititive = new JLabel("1");
-	JLabel speed = new JLabel("1");
-	JLabel temporaryHitPoints = new JLabel("yeeet");
+	JLabel armourClass = new JLabel("1", SwingConstants.CENTER);
+	JLabel inititive = new JLabel("1", SwingConstants.CENTER);
+	JLabel speed = new JLabel("1", SwingConstants.CENTER);
+	JLabel temporaryHitPoints = new JLabel("yeeet",SwingConstants.CENTER);
 	public HpAndArmourPannel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
@@ -44,7 +45,7 @@ public class HpAndArmourPannel extends JPanel {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline, titleText);
-		title.setTitlePosition(TitledBorder.BELOW_BOTTOM);
+		title.setTitlePosition(TitledBorder.BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		return title;
 	}
@@ -52,7 +53,7 @@ public class HpAndArmourPannel extends JPanel {
 		JPanel jPanel = new JPanel();
 		JLabel hpMax = new JLabel("Hit Point Maximum");
 		JLabel hpMaxValue = new JLabel("90");
-		JLabel currentHpValue = new JLabel("12");
+		JLabel currentHpValue = new JLabel("12",SwingConstants.CENTER);
 		
 		
 		hpMax.setFont(new Font("Arial", Font.PLAIN, 10));

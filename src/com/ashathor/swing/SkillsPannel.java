@@ -25,7 +25,7 @@ public class SkillsPannel extends JPanel {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline, "Skills");
-		title.setTitlePosition(TitledBorder.BELOW_BOTTOM);
+		title.setTitlePosition(TitledBorder.BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
 		GridLayout gridLayout = new GridLayout(SkillNames.numOfSkills, GRID_COLS);
