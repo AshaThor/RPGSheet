@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.ui;
 
 import java.awt.Color;
 
@@ -25,11 +25,14 @@ public class OtherProfsAndLangsPanel extends JPanel {
 		title.setTitlePosition(TitledBorder.BOTTOM);
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
-		JScrollPane scrollArea = new JScrollPane();
-		scrollArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		JTextArea textArea = new JTextArea(10,10);
+		
+		JTextArea textArea = new JTextArea(25,25);
+		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
-		scrollArea.add(textArea);
+		
+		JScrollPane scrollArea = new JScrollPane(textArea);
+		scrollArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		
 		this.add(scrollArea);
 		
 	}

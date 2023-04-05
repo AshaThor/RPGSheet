@@ -1,4 +1,4 @@
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.ui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-public class HpAndArmourPannel extends JPanel {
+public class HpAndArmourPanel extends JPanel {
 	/**
 	 * 
 	 */
@@ -22,7 +22,7 @@ public class HpAndArmourPannel extends JPanel {
 	JLabel inititive = new JLabel("1", SwingConstants.CENTER);
 	JLabel speed = new JLabel("1", SwingConstants.CENTER);
 	JLabel temporaryHitPoints = new JLabel("yeeet",SwingConstants.CENTER);
-	public HpAndArmourPannel() {
+	public HpAndArmourPanel() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
 		armourClass.setBorder(formatTitle("Armour Class"));

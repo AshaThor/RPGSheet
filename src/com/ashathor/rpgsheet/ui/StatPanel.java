@@ -1,4 +1,4 @@
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.ui;
 
 import java.awt.Button;
 import java.awt.Color;
@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import com.ashathor.rpgsheet.controller.CharacterStatsController;
+import com.ashathor.rpgsheet.model.Character;
+
 public class StatPanel extends JPanel {
 	/**Statistic block for a RPG Game
 	 */
@@ -32,7 +35,7 @@ public class StatPanel extends JPanel {
 	 * @param statName - Name and title of the statistic
 	 * @param initStat - Initial Statistic
 	 * */
-	public StatPanel(String statName, int initStat) {
+	public StatPanel(String statName, int initStat, Character character, CharacterStatsController controller) {
 
 		//Setting up the Title for the statistic
 		Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -88,8 +91,8 @@ public class StatPanel extends JPanel {
 		statLabel.setBorder(blackline);
 		modifierLabel.setBorder(blackline);
 
-		plusButton.addActionListener(e -> Calc("+"));
-		minusButton.addActionListener(e -> Calc("-"));
+		plusButton.addActionListener(controller);
+		minusButton.addActionListener(controller);
 	}
 
 	private void calcModifier() {

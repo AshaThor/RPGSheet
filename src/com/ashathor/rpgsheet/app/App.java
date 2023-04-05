@@ -1,10 +1,25 @@
 /**
  * 
  */
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.app;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.text.StyleConstants.CharacterConstants;
+
+import com.ashathor.rpgsheet.ui.ApplicationMenuBar;
+import com.ashathor.rpgsheet.ui.HpAndArmourPanel;
+import com.ashathor.rpgsheet.ui.InspirationPanel;
+import com.ashathor.rpgsheet.ui.OtherProfsAndLangsPanel;
+import com.ashathor.rpgsheet.ui.PassiveWisdomPanel;
+import com.ashathor.rpgsheet.ui.ProficencyBonusPanel;
+import com.ashathor.rpgsheet.ui.SavingThrowsPanel;
+import com.ashathor.rpgsheet.ui.SkillsPanel;
+import com.ashathor.rpgsheet.ui.StatsPanel;
+import com.ashathor.rpgsheet.ui.TabbedPanel;
+import com.ashathor.rpgsheet.ui.TitleBar;
+import com.ashathor.rpgsheet.controller.CharacterStatsController;
+import com.ashathor.rpgsheet.model.Character;
 
 /**
  * @author Ash Dev
@@ -27,6 +42,9 @@ public class App {
 				| UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
+		
+		Character character = new Character();
+		
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new JFrame();
 			
@@ -48,7 +66,7 @@ public class App {
 			frame.add(titleBar, titleBarConstraints);
 			
 			//Stats Panel
-			StatsPanel statsPanel = new StatsPanel();
+			StatsPanel statsPanel = new StatsPanel(character);
 			GridBagConstraints statsPanelConstraints = new GridBagConstraints(0, 2, 1, 4, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			Dimension stats = new Dimension(90,0);
@@ -56,26 +74,26 @@ public class App {
 			frame.add(statsPanel, statsPanelConstraints);
 			
 			//Saving Throws Pannel
-			SavingThrowsPannel savingThrowsPannel =  new SavingThrowsPannel();
+			SavingThrowsPanel savingThrowsPannel =  new SavingThrowsPanel();
 			GridBagConstraints savingThrowsConstraints = new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(savingThrowsPannel,savingThrowsConstraints);
 			
 			//Skills Pannel
-			SkillsPannel skillsPannel = new SkillsPannel();
+			SkillsPanel skillsPannel = new SkillsPanel();
 			GridBagConstraints skillsPannelConstraints = new GridBagConstraints(1, 3, 1, 3, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(skillsPannel,skillsPannelConstraints);
 			
 			//HP and Armour Pannel
-			HpAndArmourPannel hpAndArmourPannel = new HpAndArmourPannel();
+			HpAndArmourPanel hpAndArmourPannel = new HpAndArmourPanel();
 			GridBagConstraints hpAndArmourConstraints = new GridBagConstraints(2, 2, 1, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0); 
 			hpAndArmourPannel.setPreferredSize(new Dimension(250,0));
 			frame.add(hpAndArmourPannel,hpAndArmourConstraints);
 			
 			//Inspiration Panel
-			InspirationPannel inspirationPannel = new InspirationPannel();
+			InspirationPanel inspirationPannel = new InspirationPanel();
 			GridBagConstraints inspirationPannelConstraints = new GridBagConstraints(2, 3, 1, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0); 
 			inspirationPannel.setPreferredSize(new Dimension(250,50));
@@ -102,7 +120,7 @@ public class App {
 			frame.add(tabbedPannel, tabbedPanelContstraints);
 			
 			//Passive Wisdom Pannel
-			PassiveWisdomPannel passiveWisdomPannel = new PassiveWisdomPannel();
+			PassiveWisdomPanel passiveWisdomPannel = new PassiveWisdomPanel();
 			GridBagConstraints passiveWisdomConstraints = new GridBagConstraints(0, 6, 3, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(passiveWisdomPannel, passiveWisdomConstraints);

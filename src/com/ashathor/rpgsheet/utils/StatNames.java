@@ -1,4 +1,4 @@
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.utils;
 
 public class StatNames {
 	public static final String STRENGTH = "Strength";

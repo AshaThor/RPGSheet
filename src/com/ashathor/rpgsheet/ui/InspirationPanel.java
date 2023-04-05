@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.ui;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -19,14 +19,14 @@ import javax.swing.border.TitledBorder;
  * @author Ash Dev
  *
  */
-public class InspirationPannel extends JPanel {
+public class InspirationPanel extends JPanel {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public InspirationPannel() {
+	public InspirationPanel() {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline);

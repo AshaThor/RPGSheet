@@ -1,4 +1,4 @@
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.ui;
 
 import java.awt.Color;
 

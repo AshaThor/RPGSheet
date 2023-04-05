@@ -1,4 +1,4 @@
-package com.ashathor.swing;
+package com.ashathor.rpgsheet.utils;
 
 /**Utility class for information regarding Skills*/
 public class SkillNames {
