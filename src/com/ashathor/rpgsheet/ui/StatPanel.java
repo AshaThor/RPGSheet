@@ -33,9 +33,8 @@ public class StatPanel extends JPanel {
 
 	/**Initialisation
 	 * @param statName - Name and title of the statistic
-	 * @param initStat - Initial Statistic
 	 * */
-	public StatPanel(String statName, int initStat, Character character, CharacterStatsController controller) {
+	public StatPanel(String statName, int stat, CharacterStatsController controller) {
 
 		//Setting up the Title for the statistic
 		Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -44,15 +43,15 @@ public class StatPanel extends JPanel {
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
 
-		if (initStat > 20) {
+		if (stat > 20) {
 			LOGGER.info("Stat exceeded max limit of 20, setting it to 20");
-			initStat = 20;
-		} else if (initStat < 0) {
+			stat = 20;
+		} else if (stat < 0) {
 			LOGGER.info("Stat subceeded min limit of 0, setting it to 0");
-			initStat = 0;
+			stat = 0;
 		}
 		// Take initial statistic and add it to class variables
-		stat = initStat;
+		stat = stat;
 		// Calculate Modifier based off statistic
 		calcModifier();
 
