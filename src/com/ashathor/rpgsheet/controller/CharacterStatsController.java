@@ -34,6 +34,7 @@ public class CharacterStatsController implements ActionListener{
 		System.out.println(e.getActionCommand().toString());
 		if(identifiers[1].contains("plus")){
 			changeStat(identifiers[0], true);
+			view.revalidate();
 		} else if (identifiers[1].contains("minus")) {
 			changeStat(identifiers[0], false);
 		} else {
@@ -44,9 +45,15 @@ public class CharacterStatsController implements ActionListener{
 	
 	//comment to show change in stats
 	private void changeStat(String stat, boolean changeDirection) {
-		/*
-		 * switch (stat) { case }
-		 */
+		switch (stat) { 
+		case "strength":
+			if(changeDirection) {
+			model.setStrength(model.getStrength()+1);
+			} else {
+			model.setStrength(model.getStrength()-1);
+			}
+			System.out.println(model.getStrength());
+		}
 	}
 
 }

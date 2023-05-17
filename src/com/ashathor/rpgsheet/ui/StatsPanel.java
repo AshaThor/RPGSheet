@@ -21,17 +21,13 @@ public class StatsPanel extends JPanel {
 		
 		GridLayout gridLayout = new GridLayout(6,1);
 		this.setLayout(gridLayout);
-		StatPanel strengthStatPanel = new StatPanel("Strength", 10, character ,characterStatsController);
-		add(strengthStatPanel);
-		add(new StatPanel("Dexterity", 10, character ,characterStatsController));
-		add(new StatPanel("Constitution", 10, character ,characterStatsController));
-		add(new StatPanel("Intelligence", 10, character ,characterStatsController));
-		add(new StatPanel("Wisdom", 10, character ,characterStatsController));
-		add(new StatPanel("Charisma", 10, character ,characterStatsController));
-		/*
-		 * add(new StatHolder(10)); add(new StatHolder(12)); add(new StatHolder(13));
-		 * add(new StatHolder(13)); add(new StatHolder(13));
-		 */
+		StatPanel strengthPanel = new StatPanel("Strength", character.getStrength() ,characterStatsController);
+		add(strengthPanel);
+		add(new StatPanel("Dexterity", character.getDexterity() ,characterStatsController));
+		add(new StatPanel("Constitution", character.getConstitution() ,characterStatsController));
+		add(new StatPanel("Intelligence", character.getInteligence() ,characterStatsController));
+		add(new StatPanel("Wisdom", character.getWisdom() ,characterStatsController));
+		add(new StatPanel("Charisma", character.getCharisma() ,characterStatsController));
 	}
 
 }

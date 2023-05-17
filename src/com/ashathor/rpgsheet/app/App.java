@@ -44,6 +44,7 @@ public class App {
 		}
 		
 		Character character = new Character();
+		setupCharacter(character);
 		
 		EventQueue.invokeLater(() -> {
 			JFrame frame = new JFrame();
@@ -132,5 +133,30 @@ public class App {
 			frame.setVisible(true);
 
 		});
+		
+		
 	}
+		private static void setupCharacter(Character character){
+			character.setName("Throom Pending");
+			character.setCla55("Artificer");
+			character.setLevel("3");
+			character.setBackground("Background");
+			character.setPlayerName("Ashley");
+			character.setRace("Ele");
+			character.setAlignment("yes");
+			character.setExp("number");
+			
+			character.setStrength(9);
+			character.setDexterity(9);
+			character.setConstitution(9);
+			character.setInteligence(9);
+			character.setWisdom(9);
+			character.setCharisma(9);
+			
+			character.setPassiveWisdom(9);
+			character.setInspiration(0);
+			character.setProficiencyBonus(1);
+			
+			character.setArmourClass(12);
+		}
 }
