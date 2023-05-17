@@ -17,11 +17,12 @@ public class StatsPanel extends JPanel {
 
 	public StatsPanel(Character character) {
 		
-		CharacterStatsController characterStatsController = new CharacterStatsController();
+		CharacterStatsController characterStatsController = new CharacterStatsController(character, this);
 		
 		GridLayout gridLayout = new GridLayout(6,1);
 		this.setLayout(gridLayout);
-		add(new StatPanel("Strength", 10, character ,characterStatsController));
+		StatPanel strengthStatPanel = new StatPanel("Strength", 10, character ,characterStatsController);
+		add(strengthStatPanel);
 		add(new StatPanel("Dexterity", 10, character ,characterStatsController));
 		add(new StatPanel("Constitution", 10, character ,characterStatsController));
 		add(new StatPanel("Intelligence", 10, character ,characterStatsController));

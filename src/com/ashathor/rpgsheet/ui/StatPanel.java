@@ -78,11 +78,13 @@ public class StatPanel extends JPanel {
 
 		// Make and contain buttons
 		Button plusButton = new Button("+");
+		plusButton.setActionCommand(statName.toLowerCase()+"_plus");
 		plusButton.setFont(fontStyle);
 		this.add(plusButton, new GridBagConstraints(0, 2, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
 		Button minusButton = new Button("-");
+		minusButton.setActionCommand(statName.toLowerCase()+"_minus");
 		minusButton.setFont(fontStyle);
 		this.add(minusButton, new GridBagConstraints(1, 2, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
