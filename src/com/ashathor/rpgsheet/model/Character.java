@@ -3,11 +3,19 @@
  */
 package com.ashathor.rpgsheet.model;
 
+import java.util.Observable;
+import java.util.logging.Logger;
+
+import com.ashathor.rpgsheet.ui.StatPanel;
+
 /**
  * @author Rivendell
  *
  */
-public class Character {
+@SuppressWarnings("deprecation")
+public class Character extends Observable{
+	
+	private static final Logger LOGGER = Logger.getLogger(Character.class.getName());
 
 	//Character top info
 	private String name;
@@ -70,6 +78,8 @@ public class Character {
 	 */
 	public void setName(String name) {
 		this.name = name;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -182,6 +192,11 @@ public class Character {
 	 */
 	public void setStrength(Integer strength) {
 		this.strength = strength;
+		LOGGER.fine("Strength changed to " + strength);
+		setChanged();
+		LOGGER.fine("Strength set changed");
+		notifyObservers("strength");
+		LOGGER.fine("Strength observers notified");
 	}
 
 	/**
@@ -196,6 +211,11 @@ public class Character {
 	 */
 	public void setDexterity(Integer dexterity) {
 		this.dexterity = dexterity;
+		LOGGER.fine("Dexterity changed to " + dexterity);
+		setChanged();
+		LOGGER.fine("Dexterity set changed");
+		notifyObservers("dexterity");
+		LOGGER.fine("Dexterity observers notified");
 	}
 
 	/**
@@ -210,6 +230,11 @@ public class Character {
 	 */
 	public void setConstitution(Integer constitution) {
 		this.constitution = constitution;
+		LOGGER.fine("Constitution changed to " + constitution);
+		setChanged();
+		LOGGER.fine("Constitution set changed");
+		notifyObservers("constitution");
+		LOGGER.fine("Constitution observers notified");
 	}
 
 	/**
@@ -224,6 +249,11 @@ public class Character {
 	 */
 	public void setInteligence(Integer inteligence) {
 		this.inteligence = inteligence;
+		LOGGER.fine("Inteligence changed to " + inteligence);
+		setChanged();
+		LOGGER.fine("Inteligence set changed");
+		notifyObservers("inteligence");
+		LOGGER.fine("Inteligence observers notified");
 	}
 
 	/**
@@ -238,6 +268,11 @@ public class Character {
 	 */
 	public void setWisdom(Integer wisdom) {
 		this.wisdom = wisdom;
+		LOGGER.fine("Wisdom changed to " + wisdom);
+		setChanged();
+		LOGGER.fine("Wisdom set changed");
+		notifyObservers("wisdom");
+		LOGGER.fine("Wisdom observers notified");
 	}
 
 	/**
@@ -252,6 +287,11 @@ public class Character {
 	 */
 	public void setCharisma(Integer charisma) {
 		this.charisma = charisma;
+		LOGGER.fine("Charisma changed to " + charisma);
+		setChanged();
+		LOGGER.fine("Charisma set changed");
+		notifyObservers("charisma");
+		LOGGER.fine("Charisma observers notified");
 	}
 
 	/**

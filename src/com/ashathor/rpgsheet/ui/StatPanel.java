@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
@@ -43,17 +45,9 @@ public class StatPanel extends JPanel {
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
 
-		if (stat > 20) {
-			LOGGER.info("Stat exceeded max limit of 20, setting it to 20");
-			stat = 20;
-		} else if (stat < 0) {
-			LOGGER.info("Stat subceeded min limit of 0, setting it to 0");
-			stat = 0;
-		}
-		// Take initial statistic and add it to class variables
-		stat = stat;
+		this.stat = validateStat(stat);
 		// Calculate Modifier based off statistic
-		calcModifier();
+		calcModifier(this.stat);
 
 		
 		// Setting to a readable font and size
@@ -63,13 +57,12 @@ public class StatPanel extends JPanel {
 		
 
 		// Create main statistic text area and set its values
-		statLabel.setText(String.valueOf(stat));
+		setLabels(this.stat);
 		statLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		statLabel.setFont(fontStyle);
 		this.add(statLabel, new GridBagConstraints(0, 0, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
-		modifierLabel.setText(String.valueOf(modifier));
 		modifierLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		modifierLabel.setFont(fontStyle);
 		this.add(modifierLabel, new GridBagConstraints(0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
@@ -96,8 +89,8 @@ public class StatPanel extends JPanel {
 		minusButton.addActionListener(controller);
 	}
 
-	private void calcModifier() {
-		modifier = ((stat - 10) / 2);
+	private void calcModifier(Integer value) {
+		modifier = Math.floorDiv((value-10), 2);
 	}
 
 	private void Calc(String operator) {
@@ -109,8 +102,33 @@ public class StatPanel extends JPanel {
 			stat--;
 			statLabel.setText(String.valueOf(stat));
 		}
-		calcModifier();
+		calcModifier(stat);
 		modifierLabel.setText(String.valueOf(modifier));
+	}
+	
+	public void setLabels(Integer value) {
+		statLabel.setText(String.valueOf(value));
+		calcModifier(value);
+		modifierLabel.setText(String.valueOf(modifier));
+		System.out.println(modifier);
+	}
+	
+	public void update() {
+		this.revalidate();
+		this.repaint();
+		
+	}
+	private Integer validateStat(Integer stat) {
+
+		if (stat > 20) {
+			LOGGER.info("Stat exceeded max limit of 20, setting it to 20");
+			stat = 20;
+		} else if (stat < 0) {
+			LOGGER.info("Stat subceeded min limit of 0, setting it to 0");
+			stat = 0;
+		}
+		// Take initial statistic and add it to class variables
+		return stat;
 	}
 
 }
