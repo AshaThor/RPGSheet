@@ -17,9 +17,7 @@ import com.ashathor.rpgsheet.ui.SavingThrowsPanel;
 import com.ashathor.rpgsheet.ui.SkillsPanel;
 import com.ashathor.rpgsheet.ui.StatsPanel;
 import com.ashathor.rpgsheet.ui.TabbedPanel;
-import com.ashathor.rpgsheet.ui.TestBar;
 import com.ashathor.rpgsheet.ui.TitleBar;
-import com.ashathor.rpgsheet.controller.CharacterStatsController;
 import com.ashathor.rpgsheet.model.Character;
 
 /**
@@ -75,19 +73,19 @@ public class App {
 			statsPanel.setPreferredSize(stats);
 			frame.add(statsPanel, statsPanelConstraints);
 			
-			//Saving Throws Pannel
+			//Saving Throws Panel
 			SavingThrowsPanel savingThrowsPannel =  new SavingThrowsPanel();
 			GridBagConstraints savingThrowsConstraints = new GridBagConstraints(1, 2, 1, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(savingThrowsPannel,savingThrowsConstraints);
 			
-			//Skills Pannel
+			//Skills Panel
 			SkillsPanel skillsPannel = new SkillsPanel();
 			GridBagConstraints skillsPannelConstraints = new GridBagConstraints(1, 3, 1, 3, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(skillsPannel,skillsPannelConstraints);
 			
-			//HP and Armour Pannel
+			//HP and Armour Panel
 			HpAndArmourPanel hpAndArmourPannel = new HpAndArmourPanel();
 			GridBagConstraints hpAndArmourConstraints = new GridBagConstraints(2, 2, 1, 1, 0, 0, GridBagConstraints.CENTER,
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0); 
@@ -127,12 +125,6 @@ public class App {
 					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 			frame.add(passiveWisdomPannel, passiveWisdomConstraints);
 			
-			//Passive Wisdom Pannel
-			TestBar testBar = new TestBar();
-			GridBagConstraints testBarConst = new GridBagConstraints(0, 7, 3, 1, 0, 0, GridBagConstraints.CENTER,
-					GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-			frame.add(testBar, testBarConst);
-			
 			frame.pack();
 			frame.setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 			frame.setTitle(DEFAULT_TITLE);
@@ -156,7 +148,7 @@ public class App {
 			character.setStrength(9);
 			character.setDexterity(9);
 			character.setConstitution(9);
-			character.setInteligence(9);
+			character.setIntelligence(9);
 			character.setWisdom(9);
 			character.setCharisma(9);
 			

@@ -7,6 +7,7 @@ import java.util.Observable;
 import java.util.logging.Logger;
 
 import com.ashathor.rpgsheet.ui.StatPanel;
+import com.ashathor.rpgsheet.utils.StatNames;
 
 /**
  * @author Rivendell
@@ -31,7 +32,7 @@ public class Character extends Observable{
 	private Integer strength;
 	private Integer dexterity;
 	private Integer constitution;
-	private Integer inteligence;
+	private Integer intelligence;
 	private Integer wisdom;
 	private Integer charisma;
 	
@@ -195,7 +196,7 @@ public class Character extends Observable{
 		LOGGER.fine("Strength changed to " + strength);
 		setChanged();
 		LOGGER.fine("Strength set changed");
-		notifyObservers("strength");
+		notifyObservers(StatNames.STRENGTH);
 		LOGGER.fine("Strength observers notified");
 	}
 
@@ -214,7 +215,7 @@ public class Character extends Observable{
 		LOGGER.fine("Dexterity changed to " + dexterity);
 		setChanged();
 		LOGGER.fine("Dexterity set changed");
-		notifyObservers("dexterity");
+		notifyObservers(StatNames.DEXTERITY);
 		LOGGER.fine("Dexterity observers notified");
 	}
 
@@ -233,27 +234,27 @@ public class Character extends Observable{
 		LOGGER.fine("Constitution changed to " + constitution);
 		setChanged();
 		LOGGER.fine("Constitution set changed");
-		notifyObservers("constitution");
+		notifyObservers(StatNames.CONSTITUTION);
 		LOGGER.fine("Constitution observers notified");
 	}
 
 	/**
-	 * @return the inteligence
+	 * @return the intelligence
 	 */
-	public Integer getInteligence() {
-		return inteligence;
+	public Integer getIntelligence() {
+		return intelligence;
 	}
 
 	/**
-	 * @param inteligence the inteligence to set
+	 * @param intelligence the intelligence to set
 	 */
-	public void setInteligence(Integer inteligence) {
-		this.inteligence = inteligence;
-		LOGGER.fine("Inteligence changed to " + inteligence);
+	public void setIntelligence(Integer intelligence) {
+		this.intelligence = intelligence;
+		LOGGER.fine("Intelligence changed to " + intelligence);
 		setChanged();
-		LOGGER.fine("Inteligence set changed");
-		notifyObservers("inteligence");
-		LOGGER.fine("Inteligence observers notified");
+		LOGGER.fine("Intelligence set changed");
+		notifyObservers(StatNames.INTELLIGENCE);
+		LOGGER.fine("Intelligence observers notified");
 	}
 
 	/**
@@ -271,7 +272,7 @@ public class Character extends Observable{
 		LOGGER.fine("Wisdom changed to " + wisdom);
 		setChanged();
 		LOGGER.fine("Wisdom set changed");
-		notifyObservers("wisdom");
+		notifyObservers(StatNames.WISDOM);
 		LOGGER.fine("Wisdom observers notified");
 	}
 
@@ -290,7 +291,7 @@ public class Character extends Observable{
 		LOGGER.fine("Charisma changed to " + charisma);
 		setChanged();
 		LOGGER.fine("Charisma set changed");
-		notifyObservers("charisma");
+		notifyObservers(StatNames.CHARISMA);
 		LOGGER.fine("Charisma observers notified");
 	}
 
