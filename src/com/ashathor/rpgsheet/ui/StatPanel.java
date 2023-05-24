@@ -28,7 +28,7 @@ public class StatPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(StatPanel.class.getName());
 
-	JTextField statLabel = new JTextField();
+	JLabel statLabel = new JLabel();
 	JLabel modifierLabel = new JLabel();
 	int stat;
 	int modifier;
@@ -51,7 +51,8 @@ public class StatPanel extends JPanel {
 
 		
 		// Setting to a readable font and size
-		Font fontStyle = new Font("Arial", Font.BOLD, 10);
+		Font bigFontStyle = new Font("Arial", Font.BOLD, 12);
+		Font smallFontStyle = new Font("Arial", Font.PLAIN, 10);
 
 		this.setLayout(new GridBagLayout());
 		
@@ -59,31 +60,31 @@ public class StatPanel extends JPanel {
 		// Create main statistic text area and set its values
 		setLabels(this.stat);
 		statLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		statLabel.setFont(fontStyle);
+		statLabel.setFont(smallFontStyle);
 		this.add(statLabel, new GridBagConstraints(0, 0, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
 		modifierLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		modifierLabel.setFont(fontStyle);
+		modifierLabel.setFont(bigFontStyle);
 		this.add(modifierLabel, new GridBagConstraints(0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
 		// Make and contain buttons
 		Button plusButton = new Button("+");
 		plusButton.setActionCommand(statName+"_plus");
-		plusButton.setFont(fontStyle);
+		plusButton.setFont(smallFontStyle);
 		this.add(plusButton, new GridBagConstraints(0, 2, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
 		Button minusButton = new Button("-");
 		minusButton.setActionCommand(statName+"_minus");
-		minusButton.setFont(fontStyle);
+		minusButton.setFont(smallFontStyle);
 		this.add(minusButton, new GridBagConstraints(1, 2, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
 		// Comment this out when not debugging
-		statLabel.setBorder(blackline);
-		modifierLabel.setBorder(blackline);
+		//statLabel.setBorder(blackline);
+		//modifierLabel.setBorder(blackline);
 
 		plusButton.addActionListener(controller);
 		minusButton.addActionListener(controller);
@@ -91,19 +92,6 @@ public class StatPanel extends JPanel {
 
 	private void calcModifier(Integer value) {
 		modifier = Math.floorDiv((value-10), 2);
-	}
-
-	private void Calc(String operator) {
-		if (operator.equals("+") && stat < 20) {
-			stat++;
-			statLabel.setText(String.valueOf(stat));
-
-		} else if (operator.equals("-") && stat >= 1) {
-			stat--;
-			statLabel.setText(String.valueOf(stat));
-		}
-		calcModifier(stat);
-		modifierLabel.setText(String.valueOf(modifier));
 	}
 	
 	public void setLabels(Integer value) {

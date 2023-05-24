@@ -54,7 +54,6 @@ public class StatsPanel extends JPanel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		
 		switch (arg.toString()) { 
 		case StatNames.STRENGTH:
 			strengthPanel.setLabels(character.getStrength());

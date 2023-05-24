@@ -23,7 +23,7 @@ public class ProficientStatFactory{
 	 * @return 
 	 * @return JPanel
 	 */
-	JPanel create(String name, int stat) {
+	JPanel create(String name, int stat ) {
 		JPanel panel = new JPanel();
 		JRadioButton radioButton = new JRadioButton();
 		JLabel numberlabel = new JLabel(String.valueOf(stat));

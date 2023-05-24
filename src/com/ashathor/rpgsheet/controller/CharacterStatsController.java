@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import com.ashathor.rpgsheet.ui.StatsPanel;
 import com.ashathor.rpgsheet.utils.StatNames;
+import com.ashathor.rpgsheet.model.Character;
 
 /**
  * @author Rivendell
@@ -21,12 +22,12 @@ public class CharacterStatsController implements ActionListener{
 	/**
 	 * 
 	 */
-	private com.ashathor.rpgsheet.model.Character model;
+	private Character model;
 	private StatsPanel view;
 
 	
 	
-	public CharacterStatsController(com.ashathor.rpgsheet.model.Character character, StatsPanel statsPanel) {
+	public CharacterStatsController(Character character, StatsPanel statsPanel) {
 		super();
 		model = character;
 		view = statsPanel;
