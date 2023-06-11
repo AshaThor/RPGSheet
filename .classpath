@@ -6,9 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Ash Dev/eclipse-workspace/SwingMess/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ash Dev/eclipse-workspace/SwingMess/jackson-annotations-2.15.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ash Dev/eclipse-workspace/SwingMess/jackson-core-2.15.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ash Dev/eclipse-workspace/SwingMess/jackson-databind-2.15.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.15.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.15.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.15.1.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

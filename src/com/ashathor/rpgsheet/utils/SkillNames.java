@@ -8,7 +8,7 @@ public class SkillNames {
 	//List of static  skill names to enforce good spelling
 	public static final String ACROBATICS = "Actrobatics";
 	public static final String ANIMAL_HANDLING = "Animal Handling";
-	public static final String ARCANA = "Acana";
+	public static final String ARCANA = "Arcana";
 	public static final String ATHLETICS = "Athletics";
 	public static final String DECEPTION = "Deception";
 	public static final String HISTORY = "History";

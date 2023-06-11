@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import com.ashathor.rpgsheet.controller.ProficencyController;
+
 public class ProficientStatFactory{
 	private static final long serialVersionUID = 1L;
 
@@ -23,11 +25,14 @@ public class ProficientStatFactory{
 	 * @return 
 	 * @return JPanel
 	 */
-	JPanel create(String name, int stat ) {
+	JPanel create(String name, int stat, ProficencyController proficencyController) {
 		JPanel panel = new JPanel();
 		JRadioButton radioButton = new JRadioButton();
 		JLabel numberlabel = new JLabel(String.valueOf(stat));
 		JLabel nameLabel = new JLabel(name);
+		
+		radioButton.setActionCommand(name);
+		radioButton.addActionListener(proficencyController);
 
 		panel.add(radioButton, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
@@ -38,9 +43,10 @@ public class ProficientStatFactory{
 		return panel;
 	}
 	
-	JPanel create(String name, int stat, String skill) {
-		JPanel panel = create(name, stat);
+	JPanel create(String name, int stat, String skill, ProficencyController proficencyController) {
+		JPanel panel = create(name, stat, proficencyController);
 		JLabel skillLabel = new JLabel(skill);
+		
 		skillLabel.setFont(new Font("Arial", Font.PLAIN, 10));
 		skillLabel.setForeground(Color.GRAY);
 		panel.add(skillLabel, new GridBagConstraints(0, 3, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,

@@ -9,7 +9,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import com.ashathor.rpgsheet.utils.StatNames;
-import com.ashathor.rpgsheet.controller.SavingThrowsController;
+import com.ashathor.rpgsheet.controller.ProficencyController;
 import com.ashathor.rpgsheet.model.Character;
 
 public class SavingThrowsPanel extends JPanel {
@@ -19,8 +19,7 @@ public class SavingThrowsPanel extends JPanel {
 	/**
 	 * Saving throws creates a JPanel that contains more panels of each statistic
 	 */
-	public SavingThrowsPanel(Character character) {
-		SavingThrowsController savingThrowsController = new SavingThrowsController(character, this);
+	public SavingThrowsPanel(Character character, ProficencyController proficencyController) {
 		
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
@@ -30,11 +29,10 @@ public class SavingThrowsPanel extends JPanel {
 		this.setBorder(title);
 		GridLayout gridLayout = new GridLayout(6, 1);
 		this.setLayout(gridLayout);
-		// To-Do reactor to use a list of statistics
-		// and also character statistics
+		
 		ProficientStatFactory proficientStatFactory = new ProficientStatFactory();
 		for(String stat : StatNames.statNames()) {
-			this.add(proficientStatFactory.create(stat, 12 ));
+			this.add(proficientStatFactory.create(stat, 12, proficencyController));
 		}
 	}
 

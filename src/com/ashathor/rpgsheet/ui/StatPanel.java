@@ -2,25 +2,20 @@ package com.ashathor.rpgsheet.ui;
 
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import com.ashathor.rpgsheet.controller.CharacterStatsController;
-import com.ashathor.rpgsheet.model.Character;
 
 public class StatPanel extends JPanel {
 	/**Statistic block for a RPG Game
@@ -51,8 +46,8 @@ public class StatPanel extends JPanel {
 
 		
 		// Setting to a readable font and size
-		Font bigFontStyle = new Font("Arial", Font.BOLD, 12);
-		Font smallFontStyle = new Font("Arial", Font.PLAIN, 10);
+		Font bigFontStyle = new Font("Arial", Font.BOLD, 14);
+		Font smallFontStyle = new Font("Arial", Font.PLAIN, 12);
 
 		this.setLayout(new GridBagLayout());
 		

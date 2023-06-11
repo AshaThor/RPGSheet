@@ -10,6 +10,7 @@ import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
+import com.ashathor.rpgsheet.controller.ProficencyController;
 import com.ashathor.rpgsheet.model.Character;
 import com.ashathor.rpgsheet.ui.SavingThrowsPanel;
 
@@ -17,7 +18,7 @@ import com.ashathor.rpgsheet.ui.SavingThrowsPanel;
  * @author Ash Dev
  *
  */
-public class ProficencyPanel extends JPanel {
+public class ProficiencyPanel extends JPanel {
 
 	/**
 	 * 
@@ -27,20 +28,21 @@ public class ProficencyPanel extends JPanel {
 	/**
 	 * 
 	 */
-	public ProficencyPanel(Character character) {
+	public ProficiencyPanel(Character character) {
+		ProficencyController proficencyController = new ProficencyController(character, this);
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
 		
 		//Saving Throws Panel
-		SavingThrowsPanel savingThrowsPannel = new SavingThrowsPanel(character);
-		GridBagConstraints savingThrowsConstraints = new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER,
+		SavingThrowsPanel savingThrowsPannel = new SavingThrowsPanel(character, proficencyController);
+		GridBagConstraints savingThrowsConstraints = new GridBagConstraints(0, 0, 1, 1, 0, 1, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		this.add(savingThrowsPannel,savingThrowsConstraints);
 		
 		//Skills Panel
-		SkillsPanel skillsPannel = new SkillsPanel();
-		GridBagConstraints skillsPannelConstraints = new GridBagConstraints(0, 1, 1, 3, 0, 0, GridBagConstraints.CENTER,
+		SkillsPanel skillsPannel = new SkillsPanel(character, proficencyController);
+		GridBagConstraints skillsPannelConstraints = new GridBagConstraints(0, 1, 1, 3, 0, 1, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		this.add(skillsPannel,skillsPannelConstraints);
 	}

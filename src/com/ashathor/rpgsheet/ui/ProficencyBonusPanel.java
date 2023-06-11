@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -15,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+
+import com.ashathor.rpgsheet.model.Character;
 
 /**
  * @author Ash Dev
@@ -25,7 +26,12 @@ public class ProficencyBonusPanel extends JPanel {
 	/**
 	 * 
 	 */
-	public ProficencyBonusPanel() {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	public ProficencyBonusPanel(Character character) {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline);

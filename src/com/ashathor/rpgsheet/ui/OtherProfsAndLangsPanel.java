@@ -3,6 +3,7 @@
  */
 package com.ashathor.rpgsheet.ui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
@@ -19,6 +20,8 @@ import javax.swing.border.TitledBorder;
  */
 public class OtherProfsAndLangsPanel extends JPanel {
 	public OtherProfsAndLangsPanel() {
+		BorderLayout borderLayout = new BorderLayout();
+		this.setLayout(borderLayout);
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline, "Other Proficencies and Languages");
@@ -26,14 +29,15 @@ public class OtherProfsAndLangsPanel extends JPanel {
 		title.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(title);
 		
-		JTextArea textArea = new JTextArea(25,25);
+		//JTextArea textArea = new JTextArea(25,25);
+		JTextArea textArea = new JTextArea();
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
 		
 		JScrollPane scrollArea = new JScrollPane(textArea);
 		scrollArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		
-		this.add(scrollArea);
+		this.add(scrollArea, BorderLayout.CENTER);
 		
 	}
 

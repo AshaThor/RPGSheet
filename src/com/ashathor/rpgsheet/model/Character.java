@@ -36,6 +36,32 @@ public class Character extends Observable{
 	private Integer wisdom;
 	private Integer charisma;
 	
+	private boolean strengthProf;
+	private boolean dexterityProf;
+	private boolean constitutionProf;
+	private boolean intelligenceProf;
+	private boolean wisdomProf;
+	private boolean charismaProf;
+	
+	private boolean acrobaticsProf;
+	private boolean animalHandlingProf;
+	private boolean arcanaProf;
+	private boolean athleticsProf;
+	private boolean deceptionProf;
+	private boolean historyProf;
+	private boolean insightProf;
+	private boolean intimidationProf;
+	private boolean investigationProf;
+	private boolean medicineProf;
+	private boolean natureProf;
+	private boolean perceptionProf;
+	private boolean perfomanceProf;
+	private boolean persuationProf;
+	private boolean religionProf;
+	private boolean slightOfHandProf;
+	private boolean stealthProf;
+	private boolean survivalProf;
+	
 	private Integer passiveWisdom;
 	
 	private Integer inspiration;
@@ -293,6 +319,198 @@ public class Character extends Observable{
 		LOGGER.fine("Charisma set changed");
 		notifyObservers(StatNames.CHARISMA);
 		LOGGER.fine("Charisma observers notified");
+	}
+
+	public boolean isStrengthProf() {
+		return strengthProf;
+	}
+
+	public void setStrengthProf(boolean strengthProf) {
+		this.strengthProf = strengthProf;
+	}
+
+	public boolean isDexterityProf() {
+		return dexterityProf;
+	}
+
+	public void setDexterityProf(boolean dexterityProf) {
+		this.dexterityProf = dexterityProf;
+	}
+
+	public boolean isConstitutionProf() {
+		return constitutionProf;
+	}
+
+	public void setConstitutionProf(boolean constitutionProf) {
+		this.constitutionProf = constitutionProf;
+	}
+
+	public boolean isIntelligenceProf() {
+		return intelligenceProf;
+	}
+
+	public void setIntelligenceProf(boolean intelligenceProf) {
+		this.intelligenceProf = intelligenceProf;
+	}
+
+	public boolean isWisdomProf() {
+		return wisdomProf;
+	}
+
+	public void setWisdomProf(boolean wisdomProf) {
+		this.wisdomProf = wisdomProf;
+	}
+
+	public boolean isCharismaProf() {
+		return charismaProf;
+	}
+
+	public void setCharismaProf(boolean charismaProf) {
+		this.charismaProf = charismaProf;
+	}
+
+	public boolean isAcrobaticsProf() {
+		return acrobaticsProf;
+	}
+
+	public void setAcrobaticsProf(boolean acrobaticsProf) {
+		this.acrobaticsProf = acrobaticsProf;
+	}
+
+	public boolean isAnimalHandlingProf() {
+		return animalHandlingProf;
+	}
+
+	public void setAnimalHandlingProf(boolean animalHandlingProf) {
+		this.animalHandlingProf = animalHandlingProf;
+	}
+
+	public boolean isArcanaProf() {
+		return arcanaProf;
+	}
+
+	public void setArcanaProf(boolean arcanaProf) {
+		this.arcanaProf = arcanaProf;
+	}
+
+	public boolean isAthleticsProf() {
+		return athleticsProf;
+	}
+
+	public void setAthleticsProf(boolean athleticsProf) {
+		this.athleticsProf = athleticsProf;
+	}
+
+	public boolean isDeceptionProf() {
+		return deceptionProf;
+	}
+
+	public void setDeceptionProf(boolean deceptionProf) {
+		this.deceptionProf = deceptionProf;
+	}
+
+	public boolean isHistoryProf() {
+		return historyProf;
+	}
+
+	public void setHistoryProf(boolean historyProf) {
+		this.historyProf = historyProf;
+	}
+
+	public boolean isInsightProf() {
+		return insightProf;
+	}
+
+	public void setInsightProf(boolean insightProf) {
+		this.insightProf = insightProf;
+	}
+
+	public boolean isIntimidationProf() {
+		return intimidationProf;
+	}
+
+	public void setIntimidationProf(boolean intimidationProf) {
+		this.intimidationProf = intimidationProf;
+	}
+
+	public boolean isInvestigationProf() {
+		return investigationProf;
+	}
+
+	public void setInvestigationProf(boolean investigationProf) {
+		this.investigationProf = investigationProf;
+	}
+
+	public boolean isMedicineProf() {
+		return medicineProf;
+	}
+
+	public void setMedicineProf(boolean medicineProf) {
+		this.medicineProf = medicineProf;
+	}
+
+	public boolean isNatureProf() {
+		return natureProf;
+	}
+
+	public void setNatureProf(boolean natureProf) {
+		this.natureProf = natureProf;
+	}
+
+	public boolean isPerceptionProf() {
+		return perceptionProf;
+	}
+
+	public void setPerceptionProf(boolean perceptionProf) {
+		this.perceptionProf = perceptionProf;
+	}
+
+	public boolean isPerfomanceProf() {
+		return perfomanceProf;
+	}
+
+	public void setPerfomanceProf(boolean perfomanceProf) {
+		this.perfomanceProf = perfomanceProf;
+	}
+
+	public boolean isPersuationProf() {
+		return persuationProf;
+	}
+
+	public void setPersuationProf(boolean persuationProf) {
+		this.persuationProf = persuationProf;
+	}
+
+	public boolean isReligionProf() {
+		return religionProf;
+	}
+
+	public void setReligionProf(boolean religionProf) {
+		this.religionProf = religionProf;
+	}
+
+	public boolean isSlightOfHandProf() {
+		return slightOfHandProf;
+	}
+
+	public void setSlightOfHandProf(boolean slightOfHandProf) {
+		this.slightOfHandProf = slightOfHandProf;
+	}
+
+	public boolean isStealthProf() {
+		return stealthProf;
+	}
+
+	public void setStealthProf(boolean stealthProf) {
+		this.stealthProf = stealthProf;
+	}
+
+	public boolean isSurvivalProf() {
+		return survivalProf;
+	}
+
+	public void setSurvivalProf(boolean survivalProf) {
+		this.survivalProf = survivalProf;
 	}
 
 	/**

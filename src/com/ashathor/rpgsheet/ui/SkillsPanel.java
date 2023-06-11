@@ -12,6 +12,8 @@ import javax.swing.JRadioButton;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import com.ashathor.rpgsheet.controller.ProficencyController;
+import com.ashathor.rpgsheet.model.Character;
 import com.ashathor.rpgsheet.utils.SkillNames;
 
 public class SkillsPanel extends JPanel {
@@ -23,7 +25,7 @@ public class SkillsPanel extends JPanel {
 	
 	final static int GRID_COLS = 1;
 
-	public SkillsPanel() {
+	public SkillsPanel(Character character, ProficencyController proficencyController) {
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		TitledBorder title = new TitledBorder(blackline);
 		title = BorderFactory.createTitledBorder(blackline, "Skills");
@@ -35,7 +37,7 @@ public class SkillsPanel extends JPanel {
 		// To-Do reactor to use character statistics
 		ProficientStatFactory proficientStatFactory = new ProficientStatFactory();
 		for(String skill : SkillNames.skillNames()) {
-			this.add(proficientStatFactory.create(skill, 11, "Dex"));
+			this.add(proficientStatFactory.create(skill, 11, "Dex", proficencyController));
 		}
 	}
 }
