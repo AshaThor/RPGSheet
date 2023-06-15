@@ -72,5 +72,7 @@ public class App {
 			character.setProficiencyBonus(1);
 			
 			character.setArmourClass(12);
+			
+			character.setAcrobaticsProf(true);
 		}
 }

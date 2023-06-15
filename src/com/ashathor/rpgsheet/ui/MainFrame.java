@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.Insets;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 import com.ashathor.rpgsheet.model.Character;
@@ -108,5 +109,10 @@ public class MainFrame extends JFrame {
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		setTitle(DEFAULT_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Create Modal dialog for opening Character
+		//JDialog dialog = new SplashDialogFactory().create(this);
+		//dialog.setVisible(true);
+		
 	}
 }
