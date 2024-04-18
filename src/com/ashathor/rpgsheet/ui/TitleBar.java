@@ -7,12 +7,18 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 public class TitleBar extends JPanel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	
 	static final String CHARACTER_NAME = "Character Name";
 	static final String CLASS_AND_LEVEL = "Class and Level";
@@ -23,13 +29,13 @@ public class TitleBar extends JPanel {
 	static final String EXPERENCE_POINTS = "Experence Points";
 
 	public TitleBar() {
-		JLabel name = new JLabel("Throom Pending");
-		JLabel classAndLevel = new JLabel("Artificer 4");
-		JLabel background = new JLabel("Guild Artisan");
-		JLabel playerName = new JLabel("Ashley");
-		JLabel race = new JLabel("Loxidon");
-		JLabel alignment = new JLabel("Lawful Good");
-		JLabel experencePoints = new JLabel("18");
+		JTextField name = new JTextField("Throom Pending");
+		JTextField classAndLevel = new JTextField("Artificer 4");
+		JTextField background = new JTextField("Guild Artisan");
+		JTextField playerName = new JTextField("Ashley");
+		JTextField race = new JTextField("Loxidon");
+		JTextField alignment = new JTextField("Lawful Good");
+		JTextField experencePoints = new JTextField("18");
 		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);

@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
 		ApplicationMenuBar applicationMenuBar = new ApplicationMenuBar(character);
 		GridBagConstraints applicationMenuBarConstraints = new GridBagConstraints(0, 0, 8, 1, 1, 0, GridBagConstraints.CENTER, 
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
-		//applicationMenuBar.setMinimumSize(new Dimension(0, 50));
+		applicationMenuBar.setMaximumSize(new Dimension(80000,50));
 		add(applicationMenuBar, applicationMenuBarConstraints);
 
 		// Title Bar
@@ -100,7 +100,7 @@ public class MainFrame extends JFrame {
 		add(tabbedPannel, tabbedPanelContstraints);
 
 		// Passive Wisdom Panel
-		PassiveWisdomPanel passiveWisdomPannel = new PassiveWisdomPanel();
+		PassiveWisdomPanel passiveWisdomPannel = new PassiveWisdomPanel(character);
 		GridBagConstraints passiveWisdomConstraints = new GridBagConstraints(0, 6, 3, 1, 0, 0,
 				GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		add(passiveWisdomPannel, passiveWisdomConstraints);

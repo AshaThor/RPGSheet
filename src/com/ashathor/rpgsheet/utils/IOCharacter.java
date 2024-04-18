@@ -12,9 +12,6 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import org.json.simple.*;
-
-import com.ashathor.rpgsheet.controller.FileMenuController;
 import com.ashathor.rpgsheet.model.Character;
 import com.ashathor.rpgsheet.ui.ApplicationMenuBar;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,12 +21,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Ash Dev
  *
  */
-public class IOCharacter {
+public class IOCharacter{
 	
 	private static final Logger LOGGER = Logger.getLogger(IOCharacter.class.getName());
 	
 	public static void Save(Character model, ApplicationMenuBar view) {
 		LOGGER.info("Starting Save");
+		//getAllFields();
 		ObjectMapper mapper = new ObjectMapper();
 		FileDialog dialog = new FileDialog((JFrame) SwingUtilities.getRoot(view), "Save Character", FileDialog.SAVE);
 		dialog.setDirectory(System.getProperty("user.dir"));
@@ -50,4 +48,7 @@ public class IOCharacter {
 		LOGGER.info("Load Pressed");
 	}
 
+	public void getAllFields() {
+		
+	};
 }
