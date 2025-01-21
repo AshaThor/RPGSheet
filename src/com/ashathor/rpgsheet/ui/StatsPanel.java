@@ -1,32 +1,23 @@
 package com.ashathor.rpgsheet.ui;
 
 import java.awt.GridLayout;
-import com.ashathor.rpgsheet.utils.StatNames;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.ashathor.rpgsheet.controller.CharacterStatsController;
 import com.ashathor.rpgsheet.model.Character;
+import com.ashathor.rpgsheet.utils.Stat;
 
 @SuppressWarnings("deprecation")
 public class StatsPanel extends JPanel implements Observer{
 
 	private static final long serialVersionUID = 1L;
 	
-	JLabel text = new JLabel();
-	boolean msgSwitch = false;
-	
 	Character character;
 	
-	StatPanel strengthPanel;
-	StatPanel dexterityPanel;
-	StatPanel constitutionPanel;
-	StatPanel intelligencePanel;
-	StatPanel wisdomPanel;
-	StatPanel charismaPanel;
+	StatPanel[] panels = new StatPanel[Stat.values().length];
 
 	public StatsPanel(Character character) {
 		
@@ -37,47 +28,42 @@ public class StatsPanel extends JPanel implements Observer{
 		
 		GridLayout gridLayout = new GridLayout(6,1);
 		this.setLayout(gridLayout);
-		strengthPanel = new StatPanel(StatNames.STRENGTH, character.getStrength() ,characterStatsController);
-		dexterityPanel = new StatPanel(StatNames.DEXTERITY, character.getDexterity() ,characterStatsController);
-		constitutionPanel = new StatPanel(StatNames.CONSTITUTION, character.getConstitution() ,characterStatsController);
-		intelligencePanel = new StatPanel(StatNames.INTELLIGENCE, character.getIntelligence() ,characterStatsController);
-		wisdomPanel = new StatPanel(StatNames.WISDOM, character.getWisdom() ,characterStatsController);
-		charismaPanel = new StatPanel(StatNames.CHARISMA, character.getCharisma() ,characterStatsController);
-		add(strengthPanel);
-		add(dexterityPanel);
-		add(constitutionPanel);
-		add(intelligencePanel);
-		add(wisdomPanel);
-		add(charismaPanel);
+		
+		int[] stats = character.getStats();
+		
+		for (Stat stat : Stat.values()) {
+			panels[stat.ordinal()] = new StatPanel(stat, stats[stat.ordinal()], characterStatsController);
+			this.add(panels[stat.ordinal()]);
+		}
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
-		switch (arg.toString()) { 
-		case StatNames.STRENGTH:
-			strengthPanel.setLabels(character.getStrength());
-			strengthPanel.update();
+		Stat stat = Stat.valueOf(arg.toString());
+		switch (stat) { 
+		case STRENGTH:
+			panels[Stat.STRENGTH.ordinal()].setLabels(character.getStrength());
+			panels[Stat.STRENGTH.ordinal()].update();
 			break;
-		case StatNames.DEXTERITY:
-			dexterityPanel.setLabels(character.getDexterity());
-			dexterityPanel.update();
+		case DEXTERITY:
+			panels[Stat.DEXTERITY.ordinal()].setLabels(character.getDexterity());
+			panels[Stat.DEXTERITY.ordinal()].update();
 			break;
-		case StatNames.CONSTITUTION:
-			constitutionPanel.setLabels(character.getConstitution());
-			constitutionPanel.update();
+		case CONSTITUTION:
+			panels[Stat.CONSTITUTION.ordinal()].setLabels(character.getConstitution());
+			panels[Stat.CONSTITUTION.ordinal()].update();
 			break;
-		case StatNames.INTELLIGENCE:
-			intelligencePanel.setLabels(character.getIntelligence());
-			intelligencePanel.update();
+		case INTELLIGENCE:
+			panels[Stat.INTELLIGENCE.ordinal()].setLabels(character.getIntelligence());
+			panels[Stat.INTELLIGENCE.ordinal()].update();
 			break;
-		case StatNames.WISDOM:
-			wisdomPanel.setLabels(character.getWisdom());
-			wisdomPanel.update();
+		case WISDOM:
+			panels[Stat.WISDOM.ordinal()].setLabels(character.getWisdom());
+			panels[Stat.WISDOM.ordinal()].update();
 			break;
-		case StatNames.CHARISMA:
-			charismaPanel.setLabels(character.getCharisma());
-			charismaPanel.update();
+		case CHARISMA:
+			panels[Stat.CHARISMA.ordinal()].setLabels(character.getCharisma());
+			panels[Stat.CHARISMA.ordinal()].update();
 			break;
 		}
 		

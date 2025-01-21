@@ -6,7 +6,6 @@ package com.ashathor.rpgsheet.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import com.ashathor.rpgsheet.ui.StatsPanel;
 import com.ashathor.rpgsheet.ui.TitleBar;
 
 /**

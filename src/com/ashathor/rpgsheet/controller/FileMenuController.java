@@ -34,7 +34,6 @@ public class FileMenuController implements ActionListener {
 		switch (e.getActionCommand()) {
 		case "save" -> IOCharacter.Save(model, view);
 		case "load" -> IOCharacter.Load();
-		case "exit" -> System.exit(0);
 		case "about" -> LOGGER.info("About");
 		}
 
