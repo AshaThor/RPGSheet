@@ -88,6 +88,12 @@ public class Character extends Observable{
 	private String featuresAndTraits;
 	
 	private String equipment;
+	
+	private int platinum;
+	private int gold;
+	private int electrum;
+	private int silver;
+	private int copper;
 
 	public Character() {
 		super();
@@ -763,6 +769,46 @@ public class Character extends Observable{
 	 */
 	public void setEquipment(String equipment) {
 		this.equipment = equipment;
+	}
+
+	public int getPlatinum() {
+		return platinum;
+	}
+
+	public void setPlatinum(int platinum) {
+		this.platinum = platinum;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
+
+	public int getElectrum() {
+		return electrum;
+	}
+
+	public void setElectrum(int electrum) {
+		this.electrum = electrum;
+	}
+
+	public int getSilver() {
+		return silver;
+	}
+
+	public void setSilver(int silver) {
+		this.silver = silver;
+	}
+
+	public int getCopper() {
+		return copper;
+	}
+
+	public void setCopper(int copper) {
+		this.copper = copper;
 	}
 
 }

@@ -74,5 +74,6 @@ public class App {
 			character.setArmourClass(12);
 			
 			character.setAcrobaticsProf(true);
+			character.setPlatinum(99);
 		}
 }

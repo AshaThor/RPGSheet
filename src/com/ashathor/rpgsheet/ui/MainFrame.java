@@ -94,7 +94,7 @@ public class MainFrame extends JFrame {
 		add(otherProfsAndLangsPanel, otherProfsAndLangsPanelConstraints);
 
 		// Tabbed Panel
-		TabbedPanel tabbedPannel = new TabbedPanel();
+		TabbedPanel tabbedPannel = new TabbedPanel(character);
 		GridBagConstraints tabbedPanelContstraints = new GridBagConstraints(3, 2, 5, 5, 0, 0, GridBagConstraints.CENTER,
 				GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0);
 		add(tabbedPannel, tabbedPanelContstraints);
