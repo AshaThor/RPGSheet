@@ -11,6 +11,8 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
@@ -32,7 +34,8 @@ public class InspirationPanel extends JPanel {
 		title = BorderFactory.createTitledBorder(blackline);
 		this.setBorder(title);
 		JLabel inspirationTitle = new JLabel("Inspiration", SwingConstants.CENTER);
-		JLabel inspirationValue = new JLabel("1",SwingConstants.CENTER);
+		JTextField inspirationValue = new JTextField("1");
+		inspirationValue.setHorizontalAlignment(JTextField.CENTER);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
 		this.add(inspirationValue,new GridBagConstraints(0, 0, 1, 1, 1.0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,

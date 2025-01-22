@@ -19,6 +19,12 @@ import javax.swing.border.TitledBorder;
  *
  */
 public class OtherProfsAndLangsPanel extends JPanel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public OtherProfsAndLangsPanel() {
 		BorderLayout borderLayout = new BorderLayout();
 		this.setLayout(borderLayout);

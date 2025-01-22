@@ -6,19 +6,19 @@ package com.ashathor.rpgsheet.model;
 import java.util.Observable;
 import java.util.logging.Logger;
 
-import com.ashathor.rpgsheet.ui.StatPanel;
-import com.ashathor.rpgsheet.utils.StatNames;
+import com.ashathor.rpgsheet.utils.Skill;
+import com.ashathor.rpgsheet.utils.Stat;
 
 /**
  * @author Rivendell
  *
  */
 @SuppressWarnings("deprecation")
-public class Character extends Observable{
-	
+public class Character extends Observable {
+
 	private static final Logger LOGGER = Logger.getLogger(Character.class.getName());
 
-	//Character top info
+	// Character top info
 	private String name;
 	private String cla55;
 	private String level;
@@ -27,70 +27,54 @@ public class Character extends Observable{
 	private String race;
 	private String alignment;
 	private String exp;
-	
-	//Statistics block
-	private Integer strength;
-	private Integer dexterity;
-	private Integer constitution;
-	private Integer intelligence;
-	private Integer wisdom;
-	private Integer charisma;
-	
-	private boolean strengthProf;
-	private boolean dexterityProf;
-	private boolean constitutionProf;
-	private boolean intelligenceProf;
-	private boolean wisdomProf;
-	private boolean charismaProf;
-	
-	private boolean acrobaticsProf;
-	private boolean animalHandlingProf;
-	private boolean arcanaProf;
-	private boolean athleticsProf;
-	private boolean deceptionProf;
-	private boolean historyProf;
-	private boolean insightProf;
-	private boolean intimidationProf;
-	private boolean investigationProf;
-	private boolean medicineProf;
-	private boolean natureProf;
-	private boolean perceptionProf;
-	private boolean perfomanceProf;
-	private boolean persuationProf;
-	private boolean religionProf;
-	private boolean slightOfHandProf;
-	private boolean stealthProf;
-	private boolean survivalProf;
-	
-	private Integer passiveWisdom;
-	
-	private Integer inspiration;
-	private Integer proficiencyBonus;
-	
-	private Integer armourClass;
-	private Integer initiative;
-	private Integer speed;
-	
-	private Integer currentHitPoints;
-	private Integer maximumHitPoints;
-	private Integer temporaryHitPoints;
-	
-	private Integer hitDice;
-	private Integer totalHitDice;
-	
+
+	// Statistics array
+	// This is created using the statistics enum and all data in and out needs to be
+	// aware of the enum.
+	// Using the enum ordinal to place items in the correct entry.
+	private final int[] stats = new int[Stat.values().length];
+
+	// Skills array
+	private final int[] skills = new int[Skill.values().length];
+
+	private final boolean[] savingThrows = new boolean[Stat.values().length];
+
+	private final boolean[] skillProficencies = new boolean[Skill.values().length];
+
+	private String passiveWisdom;
+
+	private String inspiration;
+	private String proficiencyBonus;
+
+	private String armourClass;
+	private String initiative;
+	private String speed;
+
+	private String currentHitPoints;
+	private String maximumHitPoints;
+	private String temporaryHitPoints;
+
+	private String hitDice;
+	private String totalHitDice;
+
 	private String otherProficienciesAndLanguages;
-	
+
 	private String personalTraits;
 	private String ideals;
 	private String bonds;
 	private String flaws;
-	
+
 	private String featuresAndTraits;
-	
+
 	private String equipment;
+	
+	private int platinum;
+	private int gold;
+	private int electrum;
+	private int silver;
+	private int copper;
 
 	public Character() {
-		super();
 	}
 
 	/**
@@ -211,18 +195,19 @@ public class Character extends Observable{
 	 * @return the strength
 	 */
 	public Integer getStrength() {
-		return strength;
+		//Uses the Stat enum ordinal to get the place in the array that strength is being saved.
+		return this.stats[Stat.STRENGTH.ordinal()];
 	}
 
 	/**
 	 * @param strength the strength to set
 	 */
 	public void setStrength(Integer strength) {
-		this.strength = strength;
+		this.stats[Stat.STRENGTH.ordinal()] = strength;
 		LOGGER.fine("Strength changed to " + strength);
 		setChanged();
 		LOGGER.fine("Strength set changed");
-		notifyObservers(StatNames.STRENGTH);
+		notifyObservers(Stat.STRENGTH);
 		LOGGER.fine("Strength observers notified");
 	}
 
@@ -230,18 +215,18 @@ public class Character extends Observable{
 	 * @return the dexterity
 	 */
 	public Integer getDexterity() {
-		return dexterity;
+		return this.stats[Stat.DEXTERITY.ordinal()];
 	}
 
 	/**
 	 * @param dexterity the dexterity to set
 	 */
 	public void setDexterity(Integer dexterity) {
-		this.dexterity = dexterity;
+		this.stats[Stat.DEXTERITY.ordinal()] = dexterity;
 		LOGGER.fine("Dexterity changed to " + dexterity);
 		setChanged();
 		LOGGER.fine("Dexterity set changed");
-		notifyObservers(StatNames.DEXTERITY);
+		notifyObservers(Stat.DEXTERITY);
 		LOGGER.fine("Dexterity observers notified");
 	}
 
@@ -249,18 +234,18 @@ public class Character extends Observable{
 	 * @return the constitution
 	 */
 	public Integer getConstitution() {
-		return constitution;
+		return this.stats[Stat.CONSTITUTION.ordinal()];
 	}
 
 	/**
 	 * @param constitution the constitution to set
 	 */
 	public void setConstitution(Integer constitution) {
-		this.constitution = constitution;
+		this.stats[Stat.CONSTITUTION.ordinal()] = constitution;
 		LOGGER.fine("Constitution changed to " + constitution);
 		setChanged();
 		LOGGER.fine("Constitution set changed");
-		notifyObservers(StatNames.CONSTITUTION);
+		notifyObservers(Stat.CONSTITUTION);
 		LOGGER.fine("Constitution observers notified");
 	}
 
@@ -268,18 +253,18 @@ public class Character extends Observable{
 	 * @return the intelligence
 	 */
 	public Integer getIntelligence() {
-		return intelligence;
+		return this.stats[Stat.INTELLIGENCE.ordinal()];
 	}
 
 	/**
 	 * @param intelligence the intelligence to set
 	 */
 	public void setIntelligence(Integer intelligence) {
-		this.intelligence = intelligence;
+		this.stats[Stat.INTELLIGENCE.ordinal()] = intelligence;
 		LOGGER.fine("Intelligence changed to " + intelligence);
 		setChanged();
 		LOGGER.fine("Intelligence set changed");
-		notifyObservers(StatNames.INTELLIGENCE);
+		notifyObservers(Stat.INTELLIGENCE);
 		LOGGER.fine("Intelligence observers notified");
 	}
 
@@ -287,18 +272,18 @@ public class Character extends Observable{
 	 * @return the wisdom
 	 */
 	public Integer getWisdom() {
-		return wisdom;
+		return this.stats[Stat.WISDOM.ordinal()];
 	}
 
 	/**
 	 * @param wisdom the wisdom to set
 	 */
 	public void setWisdom(Integer wisdom) {
-		this.wisdom = wisdom;
+		this.stats[Stat.WISDOM.ordinal()] = wisdom;
 		LOGGER.fine("Wisdom changed to " + wisdom);
 		setChanged();
 		LOGGER.fine("Wisdom set changed");
-		notifyObservers(StatNames.WISDOM);
+		notifyObservers(Stat.WISDOM);
 		LOGGER.fine("Wisdom observers notified");
 	}
 
@@ -306,364 +291,372 @@ public class Character extends Observable{
 	 * @return the charisma
 	 */
 	public Integer getCharisma() {
-		return charisma;
+		return this.stats[Stat.CHARISMA.ordinal()];
 	}
 
 	/**
 	 * @param charisma the charisma to set
 	 */
 	public void setCharisma(Integer charisma) {
-		this.charisma = charisma;
+		this.stats[Stat.CHARISMA.ordinal()] = charisma;
 		LOGGER.fine("Charisma changed to " + charisma);
 		setChanged();
 		LOGGER.fine("Charisma set changed");
-		notifyObservers(StatNames.CHARISMA);
+		notifyObservers(Stat.CHARISMA);
 		LOGGER.fine("Charisma observers notified");
 	}
 
+	public void setAcrobatics(int value) {
+		this.skills[Skill.ACROBATICS.ordinal()] = value;
+	}
+
+	public void setAnimalHandleing(int value) {
+		this.skills[Skill.ANIMAL_HANDLING.ordinal()] = value;
+	}
+
 	public boolean isStrengthProf() {
-		return strengthProf;
+		return this.savingThrows[Stat.STRENGTH.ordinal()];
 	}
 
 	public void setStrengthProf(boolean strengthProf) {
-		this.strengthProf = strengthProf;
+		this.savingThrows[Stat.STRENGTH.ordinal()] = strengthProf;
 	}
 
 	public boolean isDexterityProf() {
-		return dexterityProf;
+		return this.savingThrows[Stat.DEXTERITY.ordinal()];
 	}
 
 	public void setDexterityProf(boolean dexterityProf) {
-		this.dexterityProf = dexterityProf;
+		this.savingThrows[Stat.DEXTERITY.ordinal()] = dexterityProf;
 	}
 
 	public boolean isConstitutionProf() {
-		return constitutionProf;
+		return this.savingThrows[Stat.CONSTITUTION.ordinal()];
 	}
 
 	public void setConstitutionProf(boolean constitutionProf) {
-		this.constitutionProf = constitutionProf;
+		this.savingThrows[Stat.CONSTITUTION.ordinal()] = constitutionProf;
 	}
 
 	public boolean isIntelligenceProf() {
-		return intelligenceProf;
+		return this.savingThrows[Stat.INTELLIGENCE.ordinal()];
 	}
 
 	public void setIntelligenceProf(boolean intelligenceProf) {
-		this.intelligenceProf = intelligenceProf;
+		this.savingThrows[Stat.INTELLIGENCE.ordinal()] = intelligenceProf;
 	}
 
 	public boolean isWisdomProf() {
-		return wisdomProf;
+		return this.savingThrows[Stat.WISDOM.ordinal()];
 	}
 
 	public void setWisdomProf(boolean wisdomProf) {
-		this.wisdomProf = wisdomProf;
+		this.savingThrows[Stat.WISDOM.ordinal()] = wisdomProf;
 	}
 
 	public boolean isCharismaProf() {
-		return charismaProf;
+		return this.savingThrows[Stat.CHARISMA.ordinal()];
 	}
 
 	public void setCharismaProf(boolean charismaProf) {
-		this.charismaProf = charismaProf;
+		this.savingThrows[Stat.CHARISMA.ordinal()] = charismaProf;
 	}
 
 	public boolean isAcrobaticsProf() {
-		return acrobaticsProf;
+		return this.skillProficencies[Skill.ACROBATICS.ordinal()];
 	}
 
 	public void setAcrobaticsProf(boolean acrobaticsProf) {
-		this.acrobaticsProf = acrobaticsProf;
+		this.skillProficencies[Skill.ACROBATICS.ordinal()] = acrobaticsProf;
 	}
 
 	public boolean isAnimalHandlingProf() {
-		return animalHandlingProf;
+		return this.skillProficencies[Skill.ANIMAL_HANDLING.ordinal()];
 	}
 
 	public void setAnimalHandlingProf(boolean animalHandlingProf) {
-		this.animalHandlingProf = animalHandlingProf;
+		this.skillProficencies[Skill.ANIMAL_HANDLING.ordinal()] = animalHandlingProf;
 	}
 
 	public boolean isArcanaProf() {
-		return arcanaProf;
+		return this.skillProficencies[Skill.ARCANA.ordinal()];
 	}
 
 	public void setArcanaProf(boolean arcanaProf) {
-		this.arcanaProf = arcanaProf;
+		this.skillProficencies[Skill.ARCANA.ordinal()] = arcanaProf;
 	}
 
 	public boolean isAthleticsProf() {
-		return athleticsProf;
+		return this.skillProficencies[Skill.ATHLETICS.ordinal()];
 	}
 
 	public void setAthleticsProf(boolean athleticsProf) {
-		this.athleticsProf = athleticsProf;
+		this.skillProficencies[Skill.ATHLETICS.ordinal()] = athleticsProf;
 	}
 
 	public boolean isDeceptionProf() {
-		return deceptionProf;
+		return this.skillProficencies[Skill.DECEPTION.ordinal()];
 	}
 
 	public void setDeceptionProf(boolean deceptionProf) {
-		this.deceptionProf = deceptionProf;
+		this.skillProficencies[Skill.DECEPTION.ordinal()] = deceptionProf;
 	}
 
 	public boolean isHistoryProf() {
-		return historyProf;
+		return this.skillProficencies[Skill.HISTORY.ordinal()];
 	}
 
 	public void setHistoryProf(boolean historyProf) {
-		this.historyProf = historyProf;
+		this.skillProficencies[Skill.HISTORY.ordinal()] = historyProf;
 	}
 
 	public boolean isInsightProf() {
-		return insightProf;
+		return this.skillProficencies[Skill.INSIGHT.ordinal()];
 	}
 
 	public void setInsightProf(boolean insightProf) {
-		this.insightProf = insightProf;
+		this.skillProficencies[Skill.INSIGHT.ordinal()] = insightProf;
 	}
 
 	public boolean isIntimidationProf() {
-		return intimidationProf;
+		return this.skillProficencies[Skill.INTIMIDATION.ordinal()];
 	}
 
 	public void setIntimidationProf(boolean intimidationProf) {
-		this.intimidationProf = intimidationProf;
+		this.skillProficencies[Skill.INTIMIDATION.ordinal()] = intimidationProf;
 	}
 
 	public boolean isInvestigationProf() {
-		return investigationProf;
+		return this.skillProficencies[Skill.INVESTIGATION.ordinal()];
 	}
 
 	public void setInvestigationProf(boolean investigationProf) {
-		this.investigationProf = investigationProf;
+		this.skillProficencies[Skill.INVESTIGATION.ordinal()] = investigationProf;
 	}
 
 	public boolean isMedicineProf() {
-		return medicineProf;
+		return this.skillProficencies[Skill.MEDICINE.ordinal()];
 	}
 
 	public void setMedicineProf(boolean medicineProf) {
-		this.medicineProf = medicineProf;
+		this.skillProficencies[Skill.MEDICINE.ordinal()] = medicineProf;
 	}
 
 	public boolean isNatureProf() {
-		return natureProf;
+		return this.skillProficencies[Skill.NATURE.ordinal()];
 	}
 
 	public void setNatureProf(boolean natureProf) {
-		this.natureProf = natureProf;
+		this.skillProficencies[Skill.NATURE.ordinal()] = natureProf;
 	}
 
 	public boolean isPerceptionProf() {
-		return perceptionProf;
+		return this.skillProficencies[Skill.PERCEPTION.ordinal()];
 	}
 
 	public void setPerceptionProf(boolean perceptionProf) {
-		this.perceptionProf = perceptionProf;
+		this.skillProficencies[Skill.PERCEPTION.ordinal()] = perceptionProf;
 	}
 
 	public boolean isPerfomanceProf() {
-		return perfomanceProf;
+		return this.skillProficencies[Skill.PERFORMANCE.ordinal()];
 	}
 
 	public void setPerfomanceProf(boolean perfomanceProf) {
-		this.perfomanceProf = perfomanceProf;
+		this.skillProficencies[Skill.PERFORMANCE.ordinal()] = perfomanceProf;
 	}
 
 	public boolean isPersuationProf() {
-		return persuationProf;
+		return this.skillProficencies[Skill.PERSUASION.ordinal()];
 	}
 
 	public void setPersuationProf(boolean persuationProf) {
-		this.persuationProf = persuationProf;
+		this.skillProficencies[Skill.PERSUASION.ordinal()] = persuationProf;
 	}
 
 	public boolean isReligionProf() {
-		return religionProf;
+		return this.skillProficencies[Skill.RELIGION.ordinal()];
 	}
 
 	public void setReligionProf(boolean religionProf) {
-		this.religionProf = religionProf;
+		this.skillProficencies[Skill.RELIGION.ordinal()] = religionProf;
 	}
 
 	public boolean isSlightOfHandProf() {
-		return slightOfHandProf;
+		return this.skillProficencies[Skill.SLEIGHT_OF_HAND.ordinal()];
 	}
 
 	public void setSlightOfHandProf(boolean slightOfHandProf) {
-		this.slightOfHandProf = slightOfHandProf;
+		this.skillProficencies[Skill.SLEIGHT_OF_HAND.ordinal()] = slightOfHandProf;
 	}
 
 	public boolean isStealthProf() {
-		return stealthProf;
+		return this.skillProficencies[Skill.STEALTH.ordinal()];
 	}
 
 	public void setStealthProf(boolean stealthProf) {
-		this.stealthProf = stealthProf;
+		this.skillProficencies[Skill.STEALTH.ordinal()] = stealthProf;
 	}
 
 	public boolean isSurvivalProf() {
-		return survivalProf;
+		return this.skillProficencies[Skill.SURVIVAL.ordinal()];
 	}
 
 	public void setSurvivalProf(boolean survivalProf) {
-		this.survivalProf = survivalProf;
+		this.skillProficencies[Skill.SURVIVAL.ordinal()] = survivalProf;
 	}
 
 	/**
 	 * @return the passiveWisdom
 	 */
-	public Integer getPassiveWisdom() {
+	public String getPassiveWisdom() {
 		return passiveWisdom;
 	}
 
 	/**
 	 * @param passiveWisdom the passiveWisdom to set
 	 */
-	public void setPassiveWisdom(Integer passiveWisdom) {
+	public void setPassiveWisdom(String passiveWisdom) {
 		this.passiveWisdom = passiveWisdom;
 	}
 
 	/**
 	 * @return the inspiration
 	 */
-	public Integer getInspiration() {
+	public String getInspiration() {
 		return inspiration;
 	}
 
 	/**
 	 * @param inspiration the inspiration to set
 	 */
-	public void setInspiration(Integer inspiration) {
+	public void setInspiration(String inspiration) {
 		this.inspiration = inspiration;
 	}
 
 	/**
 	 * @return the proficiencyBonus
 	 */
-	public Integer getProficiencyBonus() {
+	public String getProficiencyBonus() {
 		return proficiencyBonus;
 	}
 
 	/**
 	 * @param proficiencyBonus the proficiencyBonus to set
 	 */
-	public void setProficiencyBonus(Integer proficiencyBonus) {
+	public void setProficiencyBonus(String proficiencyBonus) {
 		this.proficiencyBonus = proficiencyBonus;
 	}
 
 	/**
 	 * @return the armourClass
 	 */
-	public Integer getArmourClass() {
+	public String getArmourClass() {
 		return armourClass;
 	}
 
 	/**
 	 * @param armourClass the armourClass to set
 	 */
-	public void setArmourClass(Integer armourClass) {
+	public void setArmourClass(String armourClass) {
 		this.armourClass = armourClass;
 	}
 
 	/**
 	 * @return the initiative
 	 */
-	public Integer getInitiative() {
+	public String getInitiative() {
 		return initiative;
 	}
 
 	/**
 	 * @param initiative the initiative to set
 	 */
-	public void setInitiative(Integer initiative) {
+	public void setInitiative(String initiative) {
 		this.initiative = initiative;
 	}
 
 	/**
 	 * @return the speed
 	 */
-	public Integer getSpeed() {
+	public String getSpeed() {
 		return speed;
 	}
 
 	/**
 	 * @param speed the speed to set
 	 */
-	public void setSpeed(Integer speed) {
+	public void setSpeed(String speed) {
 		this.speed = speed;
 	}
 
 	/**
 	 * @return the currentHitPoints
 	 */
-	public Integer getCurrentHitPoints() {
+	public String getCurrentHitPoints() {
 		return currentHitPoints;
 	}
 
 	/**
 	 * @param currentHitPoints the currentHitPoints to set
 	 */
-	public void setCurrentHitPoints(Integer currentHitPoints) {
+	public void setCurrentHitPoints(String currentHitPoints) {
 		this.currentHitPoints = currentHitPoints;
 	}
 
 	/**
 	 * @return the maximumHitPoints
 	 */
-	public Integer getMaximumHitPoints() {
+	public String getMaximumHitPoints() {
 		return maximumHitPoints;
 	}
 
 	/**
 	 * @param maximumHitPoints the maximumHitPoints to set
 	 */
-	public void setMaximumHitPoints(Integer maximumHitPoints) {
+	public void setMaximumHitPoints(String maximumHitPoints) {
 		this.maximumHitPoints = maximumHitPoints;
 	}
 
 	/**
 	 * @return the temporaryHitPoints
 	 */
-	public Integer getTemporaryHitPoints() {
+	public String getTemporaryHitPoints() {
 		return temporaryHitPoints;
 	}
 
 	/**
 	 * @param temporaryHitPoints the temporaryHitPoints to set
 	 */
-	public void setTemporaryHitPoints(Integer temporaryHitPoints) {
+	public void setTemporaryHitPoints(String temporaryHitPoints) {
 		this.temporaryHitPoints = temporaryHitPoints;
 	}
 
 	/**
 	 * @return the hitDice
 	 */
-	public Integer getHitDice() {
+	public String getHitDice() {
 		return hitDice;
 	}
 
 	/**
 	 * @param hitDice the hitDice to set
 	 */
-	public void setHitDice(Integer hitDice) {
+	public void setHitDice(String hitDice) {
 		this.hitDice = hitDice;
 	}
 
 	/**
 	 * @return the totalHitDice
 	 */
-	public Integer getTotalHitDice() {
+	public String getTotalHitDice() {
 		return totalHitDice;
 	}
 
 	/**
 	 * @param totalHitDice the totalHitDice to set
 	 */
-	public void setTotalHitDice(Integer totalHitDice) {
+	public void setTotalHitDice(String totalHitDice) {
 		this.totalHitDice = totalHitDice;
 	}
 
@@ -675,7 +668,8 @@ public class Character extends Observable{
 	}
 
 	/**
-	 * @param otherProficienciesAndLanguages the otherProficienciesAndLanguages to set
+	 * @param otherProficienciesAndLanguages the otherProficienciesAndLanguages to
+	 *                                       set
 	 */
 	public void setOtherProficienciesAndLanguages(String otherProficienciesAndLanguages) {
 		this.otherProficienciesAndLanguages = otherProficienciesAndLanguages;
@@ -763,6 +757,62 @@ public class Character extends Observable{
 	 */
 	public void setEquipment(String equipment) {
 		this.equipment = equipment;
+	}
+
+	public int[] getStats() {
+		return stats;
+	}
+
+	public int[] getSkills() {
+		return skills;
+	}
+
+	public boolean[] getSkillProficencies() {
+		return skillProficencies;
+	}
+
+	public boolean[] getSavingThrows() {
+		return savingThrows;
+	}
+
+	public int getPlatinum() {
+		return platinum;
+	}
+
+	public void setPlatinum(int platinum) {
+		this.platinum = platinum;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
+
+	public int getElectrum() {
+		return electrum;
+	}
+
+	public void setElectrum(int electrum) {
+		this.electrum = electrum;
+	}
+
+	public int getSilver() {
+		return silver;
+	}
+
+	public void setSilver(int silver) {
+		this.silver = silver;
+	}
+
+	public int getCopper() {
+		return copper;
+	}
+
+	public void setCopper(int copper) {
+		this.copper = copper;
 	}
 
 }

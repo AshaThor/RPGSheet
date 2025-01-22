@@ -7,9 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
 
-import com.ashathor.rpgsheet.ui.StatsPanel;
-import com.ashathor.rpgsheet.utils.StatNames;
+import javax.swing.JButton;
+
 import com.ashathor.rpgsheet.model.Character;
+import com.ashathor.rpgsheet.ui.StatsPanel;
+import com.ashathor.rpgsheet.utils.Stat;
 
 /**
  * @author Rivendell
@@ -49,44 +51,45 @@ public class CharacterStatsController implements ActionListener{
 	}
 	
 	//TODO this is too much logic for a controller REFACTOR
-	private void changeStat(String stat, boolean changeDirection) {
+	private void changeStat(String statName, boolean changeDirection) {
+		Stat stat = Stat.valueOf(statName);
 		switch (stat) { 
-		case StatNames.STRENGTH:
+		case STRENGTH:
 			if(changeDirection) {
 			model.setStrength(model.getStrength()+1);
 			} else {
 			model.setStrength(model.getStrength()-1);
 			}
 			break;
-		case StatNames.DEXTERITY:
+		case DEXTERITY:
 			if(changeDirection) {
 			model.setDexterity(model.getDexterity()+1);
 			} else {
 			model.setDexterity(model.getDexterity()-1);
 			}
 			break;
-		case StatNames.CONSTITUTION:
+		case CONSTITUTION:
 			if(changeDirection) {
 			model.setConstitution(model.getConstitution()+1);
 			} else {
 			model.setConstitution(model.getConstitution()-1);
 			}
 			break;
-		case StatNames.INTELLIGENCE:
+		case INTELLIGENCE:
 			if(changeDirection) {
 			model.setIntelligence(model.getIntelligence()+1);
 			} else {
 			model.setIntelligence(model.getIntelligence()-1);
 			}
 			break;
-		case StatNames.WISDOM:
+		case WISDOM:
 			if(changeDirection) {
 			model.setWisdom(model.getWisdom()+1);
 			} else {
 			model.setWisdom(model.getWisdom()-1);
 			}
 			break;
-		case StatNames.CHARISMA:
+		case CHARISMA:
 			if(changeDirection) {
 			model.setCharisma(model.getCharisma()+1);
 			} else {

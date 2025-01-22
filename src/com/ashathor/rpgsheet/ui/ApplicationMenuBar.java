@@ -1,15 +1,15 @@
 package com.ashathor.rpgsheet.ui;
 
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.JButton;
+import javax.swing.JToolBar;
 
 import com.ashathor.rpgsheet.controller.FileMenuController;
 import com.ashathor.rpgsheet.model.Character;
 
-public class ApplicationMenuBar extends JMenuBar {
+public class ApplicationMenuBar extends JToolBar {
 
 	/**
 	 * 
@@ -17,35 +17,32 @@ public class ApplicationMenuBar extends JMenuBar {
 	private static final long serialVersionUID = 1L;
 
 	public ApplicationMenuBar(Character character) {
+		this.setFloatable(false);
 		FileMenuController fileMenuController = new FileMenuController(character, this);
 
-		JMenu fileMenu = new JMenu("File");
-		fileMenu.setMnemonic(KeyEvent.VK_F);
-		JMenuItem load = new JMenuItem("Load");
+		JButton load = new JButton("Load");
+		load.setMinimumSize(new Dimension(100,10));
+		load.setPreferredSize(new Dimension(100,50));
 		load.setActionCommand("load");
 		load.addActionListener(fileMenuController);
 		load.setMnemonic(KeyEvent.VK_L);
-		JMenuItem save = new JMenuItem("Save");
+		
+		JButton save = new JButton("Save");
+		save.setMinimumSize(new Dimension(100,10));
+		save.setPreferredSize(new Dimension(100,50));
 		save.setActionCommand("save");
 		save.addActionListener(fileMenuController);
 		save.setMnemonic(KeyEvent.VK_S);
-		JMenuItem exit = new JMenuItem("Exit");
-		exit.setActionCommand("exit");
-		exit.addActionListener(fileMenuController);
-		exit.setMnemonic(KeyEvent.VK_E);
-		JMenuItem about = new JMenuItem("About");
+		
+		JButton about = new JButton("About");
+		save.setMinimumSize(new Dimension(100,10));
+		save.setPreferredSize(new Dimension(100,50));
 		about.setActionCommand("about");
 		about.addActionListener(fileMenuController);
 		about.setMnemonic(KeyEvent.VK_A);
-		fileMenu.add(load);
-		fileMenu.add(save);
-		fileMenu.addSeparator();
-		fileMenu.add(about);
-		fileMenu.addSeparator();
-		fileMenu.add(exit);
 		
-		
-		
-		this.add(fileMenu);
+		this.add(load);
+		this.add(save);
+		this.add(about);
 	}
 }

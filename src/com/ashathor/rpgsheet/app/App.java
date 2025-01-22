@@ -3,24 +3,13 @@
  */
 package com.ashathor.rpgsheet.app;
 
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.text.StyleConstants.CharacterConstants;
+import java.awt.EventQueue;
 
-import com.ashathor.rpgsheet.ui.ApplicationMenuBar;
-import com.ashathor.rpgsheet.ui.HpAndArmourPanel;
-import com.ashathor.rpgsheet.ui.InspirationPanel;
-import com.ashathor.rpgsheet.ui.MainFrame;
-import com.ashathor.rpgsheet.ui.OtherProfsAndLangsPanel;
-import com.ashathor.rpgsheet.ui.PassiveWisdomPanel;
-import com.ashathor.rpgsheet.ui.ProficencyBonusPanel;
-import com.ashathor.rpgsheet.ui.SavingThrowsPanel;
-import com.ashathor.rpgsheet.ui.SkillsPanel;
-import com.ashathor.rpgsheet.ui.StatsPanel;
-import com.ashathor.rpgsheet.ui.TabbedPanel;
-import com.ashathor.rpgsheet.ui.TitleBar;
-import com.ashathor.rpgsheet.controller.FileMenuController;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import com.ashathor.rpgsheet.model.Character;
+import com.ashathor.rpgsheet.ui.MainFrame;
 
 /**
  * @author Ash Dev
@@ -61,18 +50,19 @@ public class App {
 			character.setExp("number");
 			
 			character.setStrength(9);
-			character.setDexterity(9);
+			character.setDexterity(10);
 			character.setConstitution(9);
 			character.setIntelligence(9);
 			character.setWisdom(9);
 			character.setCharisma(9);
 			
-			character.setPassiveWisdom(9);
-			character.setInspiration(0);
-			character.setProficiencyBonus(1);
-			
-			character.setArmourClass(12);
-			
 			character.setAcrobaticsProf(true);
+			
+			//character.setPassiveWisdom(9);
+			//character.setInspiration(0);
+			//character.setProficiencyBonus(1);
+			
+			character.setPlatinum(99);
+			character.setArmourClass("12");
 		}
 }

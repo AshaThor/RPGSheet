@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import com.ashathor.rpgsheet.ui.utlis.ScrollAreaFactory;
+
 /**
  * @author Ash Dev
  *
@@ -36,10 +38,10 @@ public class TraitsPanel extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
 		
-		JScrollPane personalTraits = makeScrollArea(PERSONAL_TRAITS);
-		JScrollPane ideals = makeScrollArea(IDEALS);
-		JScrollPane bonds = makeScrollArea(BONDS);
-		JScrollPane flaws = makeScrollArea(FLAWS);
+		JScrollPane personalTraits = ScrollAreaFactory.create(PERSONAL_TRAITS);
+		JScrollPane ideals = ScrollAreaFactory.create(IDEALS);
+		JScrollPane bonds = ScrollAreaFactory.create(BONDS);
+		JScrollPane flaws = ScrollAreaFactory.create(FLAWS);
 		
 		this.add(personalTraits, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 				new Insets(0, 0, 0, 0), 0, 0));
@@ -51,24 +53,5 @@ public class TraitsPanel extends JPanel {
 				new Insets(0, 0, 0, 0), 0, 0));
 	}
 	
-	private JScrollPane makeScrollArea(String titleText) 
-	{
-		Border blackline = BorderFactory.createLineBorder(Color.black);
-		TitledBorder title = new TitledBorder(blackline);
-		title = BorderFactory.createTitledBorder(blackline, titleText);
-		title.setTitlePosition(TitledBorder.BOTTOM);
-		title.setTitleJustification(TitledBorder.CENTER);
-		
-		JTextArea textArea = new JTextArea(9,170);
-		textArea.setWrapStyleWord(true);
-		textArea.setLineWrap(true);
-		
-		JScrollPane scrollArea = new JScrollPane(textArea);
-		scrollArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		
-		scrollArea.setBorder(title);
-		
-		return scrollArea;
-	}
 
 }

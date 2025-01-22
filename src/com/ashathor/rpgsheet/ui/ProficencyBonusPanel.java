@@ -11,6 +11,7 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
@@ -37,7 +38,8 @@ public class ProficencyBonusPanel extends JPanel {
 		title = BorderFactory.createTitledBorder(blackline);
 		this.setBorder(title);
 		JLabel proficencyTitle = new JLabel("Proficency Bonus", SwingConstants.CENTER);
-		JLabel proficencyValue = new JLabel("1",SwingConstants.CENTER);
+		JTextField proficencyValue = new JTextField("1");
+		proficencyValue.setHorizontalAlignment(JTextField.CENTER);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
 		this.add(proficencyValue,new GridBagConstraints(0, 0, 1, 1, 1.0, 0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
