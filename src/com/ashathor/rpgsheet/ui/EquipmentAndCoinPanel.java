@@ -19,11 +19,14 @@ public class EquipmentAndCoinPanel extends JPanel{
 	public EquipmentAndCoinPanel(Character character) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		this.setLayout(gridBagLayout);
-		CoinPanel coinPanel = new CoinPanel(character); 
+		CoinPanel coinPanel = new CoinPanel(character);
+		WornEquipmentPanel wornEquipmentPanel = new WornEquipmentPanel(character);
 		JScrollPane equipmentScrollPane = ScrollAreaFactory.create(EQUIPMENT);
 		this.add(coinPanel, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 				new Insets(0, 0, 0, 0), 0, 0));
-		this.add(equipmentScrollPane, new GridBagConstraints(0, 1, 1, 1, 3.0, 3.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+		this.add(wornEquipmentPanel, new GridBagConstraints(1, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+				new Insets(0, 0, 0, 0), 0, 0));
+		this.add(equipmentScrollPane, new GridBagConstraints(0, 1, 2, 1, 1.0, 9.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 				new Insets(0, 0, 0, 0), 0, 0));
 	}
 

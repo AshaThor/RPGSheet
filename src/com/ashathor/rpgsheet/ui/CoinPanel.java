@@ -7,6 +7,7 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import com.ashathor.rpgsheet.model.Character;
 
@@ -26,18 +27,16 @@ public class CoinPanel extends JPanel {
 		this.setLayout(gridBagLayout);
 		
 		
-		JLabel platinumLabel = new JLabel(PLATINUM);
+		JLabel platinumLabel = new JLabel(PLATINUM, SwingConstants.CENTER);
 		//Limit this to only numbers 
 		JTextField platinumField = new JTextField(character.getPlatinum());
-		
-		
-		JLabel goldLabel = new JLabel(GOLD);
+		JLabel goldLabel = new JLabel(GOLD, SwingConstants.CENTER);
 		JTextField goldField = new JTextField(2);
-		JLabel electrumLabel = new JLabel(ELECTRUM);
+		JLabel electrumLabel = new JLabel(ELECTRUM, SwingConstants.CENTER);
 		JTextField electrumField = new JTextField(2);
-		JLabel silverLabel = new JLabel(SILVER);
+		JLabel silverLabel = new JLabel(SILVER, SwingConstants.CENTER);
 		JTextField silverField = new JTextField(2);
-		JLabel copperLabel = new JLabel(COPPER);
+		JLabel copperLabel = new JLabel(COPPER, SwingConstants.CENTER);
 		JTextField copperField = new JTextField(2);
 		
 		//Change this to be prettier

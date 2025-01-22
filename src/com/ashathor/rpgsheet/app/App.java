@@ -10,6 +10,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.ashathor.rpgsheet.model.Character;
 import com.ashathor.rpgsheet.ui.MainFrame;
+import com.formdev.flatlaf.FlatDarculaLaf;
 
 /**
  * @author Ash Dev
@@ -22,11 +23,10 @@ public class App {
 	 */
 	public static void main(String[] args) {
 
-
+		FlatDarculaLaf.setup();
 		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e) {
+			UIManager.setLookAndFeel(new FlatDarculaLaf());
+		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
 		
